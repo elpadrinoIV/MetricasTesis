@@ -1,0 +1,17 @@
+Dados 2 commits (indicados a través de su hash), quiero contar todos los archivos que fueron modificados, incluyendo esos 2 commits.
+
+Ejemplo:
+
+| Comment                         |
+| Commit SHA | ARCHIVOS CAMBIADOS |
+| 1111       | M arch1 M arch2    |
+| 2222       | A arch3 M arch1    |
+| 3333       | D arch1            |
+| 4444       | A arch4 A arch5    |
+| 5555       | M arch4            |
+
+Los archivos cambiados entre
+
+ * 1111 y 1111 es 2
+ * 1111 y 2222 es 3
+ * 1111 y 5555 es 4

@@ -1,1 +1,3 @@
-Suite para archivos modificados
+Suite para archivos modificados.
+
+>ContarArchivosModificadosEntreCommits
