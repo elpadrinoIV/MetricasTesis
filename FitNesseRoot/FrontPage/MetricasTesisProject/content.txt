@@ -1,5 +1,13 @@
 Proyecto de métricas que voy a usar para mi tesis de grado.
 
 !1 Pruebas de aceptación
+!define TEST_SYSTEM {slim}
+!define TEST_RUNNER {C:\Users\administrador\Documents\ruby\rubyslim\bin\rubyslim}
+!define PATH_SEPARATOR { -I }
+!define COMMAND_PATTERN {ruby -I %p %m}
+!path C:\Users\administrador\Documents\ruby\MetricasTesis\lib\fixtures
+!path C:\Users\administrador\Documents\ruby\rubyslim\lib
 
+>SetUp
+>FiltroCommitsDePrueba
 >ArchivosModificadosSuite

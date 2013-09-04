@@ -1,0 +1,6 @@
+Muchas de las pruebas se especifican entre commit hashes, pero quiero filtrar algunos. Para eso, estoy usando como mensaje en el commit "COMMIT PARA PRUEBA. ....".
+
+!|ContarCommitsQueSonDePrueba|
+|     Hash Commit Desde                  |        Hash Commit Hasta               | Cantidad Commits de Prueba|
+|4f52d24327a05dcb7c471f5064f6fb2b34d1f9b9|9b4d59716fed076fd757b4018eb83044578c8018| 0                         |
+|4f52d24327a05dcb7c471f5064f6fb2b34d1f9b9|74e5b2348bd9ed05eba89df571f24f76136658ad| 2                         |
