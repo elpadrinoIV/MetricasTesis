@@ -1,14 +1,7 @@
-!3 !-slim:rubyslim-!
-|'''Date: '''| 2:01:50 PM (ART) on miércoles, septiembre 4, 2013 |
+!3 !-slim:/home/stoma/Documents/ruby/MetricasTesis//../rubyslim/bin/rubyslim-!
+|'''Date: '''| 8:13:43 PM (ART) on Wednesday, September 4, 2013 |
 |'''Test Page: '''|.FrontPage.MetricasTesisProject.FiltroCommitsDePrueba|
-|'''Command: '''| !-ruby -I C:\Users\administrador\Documents\ruby\MetricasTesis\lib\fixtures -I C:\Users\administrador\Documents\ruby\rubyslim\lib rubyslim  8091-! |
-|'''Exit code: '''| 1 |
-|'''Time elapsed: '''| 6.801 seconds |
+|'''Command: '''| !-ruby -I /home/stoma/Documents/ruby/MetricasTesis//lib/fixtures /home/stoma/Documents/ruby/MetricasTesis//../rubyslim/bin/rubyslim  8088-! |
+|'''Exit code: '''| 0 |
+|'''Time elapsed: '''| 0.371 seconds |
 
-----
-'''Standard Error:'''
-{{{ ruby: No such file or directory -- rubyslim (LoadError)
- }}}
-----
-'''Internal Exception:'''
-{{{ Could not start Slim. }}}
