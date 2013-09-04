@@ -1,0 +1,2 @@
+>MetricasTesisProject
+!note Release ${FITNESSE_VERSION}
