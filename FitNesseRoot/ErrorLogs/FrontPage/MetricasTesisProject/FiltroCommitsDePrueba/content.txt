@@ -1,7 +1,7 @@
-!3 !-slim:/home/stoma/Documents/ruby/MetricasTesis//../rubyslim/bin/rubyslim-!
-|'''Date: '''| 8:13:43 PM (ART) on Wednesday, September 4, 2013 |
+!3 !-slim:../rubyslim/bin/rubyslim-!
+|'''Date: '''| 8:21:34 PM (ART) on Wednesday, September 4, 2013 |
 |'''Test Page: '''|.FrontPage.MetricasTesisProject.FiltroCommitsDePrueba|
-|'''Command: '''| !-ruby -I /home/stoma/Documents/ruby/MetricasTesis//lib/fixtures /home/stoma/Documents/ruby/MetricasTesis//../rubyslim/bin/rubyslim  8088-! |
+|'''Command: '''| !-ruby -I lib/fixtures ../rubyslim/bin/rubyslim  8087-! |
 |'''Exit code: '''| 0 |
-|'''Time elapsed: '''| 0.371 seconds |
+|'''Time elapsed: '''| 0.405 seconds |
 
