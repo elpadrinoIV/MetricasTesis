@@ -19,8 +19,25 @@ module MetricasTesis
     # - No existe alguno de los commits
     # - +commit_desde+ ocurre luego de +commit_hasta+
     def commits_entre_commits (commit_desde, commit_hasta)
-      # raise ArgumentError, 'commit_desde no existe'
-      # hashes = `git log --pretty=format:"%H"`.split
+      if !existe_commit? commit_desde
+        raise ArgumentError, 'commit_desde no existe'
+      end
+
+      if !existe_commit? commit_hasta
+        raise ArgumentError, 'commit_hasta no existe'
+      end
+
+      commits = `git rev-list #{commit_desde}^..#{commit_hasta}`.split
+      if (commits.empty?)
+        raise ArgumentError, 'no se puede llegar de commit_desde a commit_hasta'
+      end
+
+      commits
+    end
+
+    def existe_commit? (commit_hash)
+      `git rev-list #{commit_hash} 2>&1`; existe=$?.success?
+      existe
     end
   end
 end
