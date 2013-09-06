@@ -5,6 +5,7 @@ Proyecto de métricas que voy a usar para mi tesis de grado.
 !define TEST_RUNNER (../rubyslim/bin/rubyslim)
 !define COMMAND_PATTERN {ruby -I %p %m}
 !path lib/fixtures
+!path lib/metricas_tesis
 
 >SetUp
 >FiltroCommitsDePrueba

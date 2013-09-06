@@ -1,5 +1,5 @@
-|FrontPage.MetricasTesisProject||20:21:51 Wed, Sep 04, 2013|
-|FrontPage.MetricasTesisProject.FiltroCommitsDePrueba||20:13:41 Wed, Sep 04, 2013|
+|FrontPage.MetricasTesisProject.FiltroCommitsDePrueba||23:28:10 Thu, Sep 05, 2013|
+|FrontPage.MetricasTesisProject||20:58:03 Thu, Sep 05, 2013|
 |FrontPage.MetricasTesisProject.SetUp||12:07:47 mié, sep 04, 2013|
 |FrontPage.MetricasTesisProject.ArchivosModificadosSuite.ContarArchivosModificadosEntreCommits||12:01:36 mié, sep 04, 2013|
 |FrontPage.MetricasTesisProject.ArchivosModificadosSuite||11:36:45 mié, sep 04, 2013|

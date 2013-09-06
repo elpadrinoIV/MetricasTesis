@@ -1,7 +1,7 @@
 !3 !-slim:../rubyslim/bin/rubyslim-!
-|'''Date: '''| 8:21:34 PM (ART) on Wednesday, September 4, 2013 |
+|'''Date: '''| 11:28:12 PM (ART) on Thursday, September 5, 2013 |
 |'''Test Page: '''|.FrontPage.MetricasTesisProject.FiltroCommitsDePrueba|
-|'''Command: '''| !-ruby -I lib/fixtures ../rubyslim/bin/rubyslim  8087-! |
+|'''Command: '''| !-ruby -I lib/fixtures:lib/metricas_tesis ../rubyslim/bin/rubyslim  8087-! |
 |'''Exit code: '''| 0 |
-|'''Time elapsed: '''| 0.405 seconds |
+|'''Time elapsed: '''| 0.523 seconds |
 
