@@ -1,7 +1,7 @@
-!3 !-fit:fit.FitServer-!
-|'''Date: '''| 11:46:03 AM (ART) on miércoles, septiembre 4, 2013 |
+!3 !-slim:../rubyslim/bin/rubyslim-!
+|'''Date: '''| 11:53:58 PM (ART) on Thursday, September 5, 2013 |
 |'''Test Page: '''|.FrontPage.MetricasTesisProject.ArchivosModificadosSuite.ContarArchivosModificadosEntreCommits|
-|'''Command: '''| !-java -cp fitnesse-standalone.jar;defaultPath fit.FitServer COMPGRAF41 80 2-! |
+|'''Command: '''| !-ruby -I lib/fixtures:lib/metricas_tesis ../rubyslim/bin/rubyslim  8088-! |
 |'''Exit code: '''| 0 |
-|'''Time elapsed: '''| 0.26 seconds |
+|'''Time elapsed: '''| 0.449 seconds |
 

@@ -1,17 +1,28 @@
 Dados 2 commits (indicados a través de su hash), quiero contar todos los archivos que fueron modificados, incluyendo esos 2 commits.
 
-Ejemplo:
+!3 Ejemplo:
 
-| Comment                         |
-| Commit SHA | ARCHIVOS CAMBIADOS |
-| 1111       | M arch1 M arch2    |
-| 2222       | A arch3 M arch1    |
-| 3333       | D arch1            |
-| 4444       | A arch4 A arch5    |
-| 5555       | M arch4            |
+| Comment                                                               |
+| Commit SHA                             | Acción           |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|{{{!-A TestUnitarioNumero1.java-!}}}    |
+|74e5b2348bd9ed05eba89df571f24f76136658ad| {{{!-M TestUnitarioNumero1.java
+A TestUnitarioNumero2.java
+A TestUnitarioNumero3.java-!}}}   |
+|4c52b1cee185e419182fc5362b3a45ed7f8f20a4| {{{!-M TestUnitarioNumero2.java
+M TestUnitarioNumero2.java-!}}}  |
+|3de42f9222f93495088347120049ce550ba0a586| {{{!-M TestUnitarioNumero1.java-!}}}   |
 
 Los archivos cambiados entre
 
- * 1111 y 1111 es 2
- * 1111 y 2222 es 3
- * 1111 y 5555 es 4
+ * 1ro y 2do es 1
+ * 1ro y 3ro es 3
+ * 1ro y 4to es 4
+
+!3 Pruebas
+
+| Contar Archivos Modificados Entre Commits|
+| Commit Desde                           | Commit Hasta                           | Filtro           | Archivos Modificados? |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|630abb361de9c70f4a6986594c4860224a9ce4cb|COMMIT PARA PRUEBA|  0                    |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|74e5b2348bd9ed05eba89df571f24f76136658ad|COMMIT PARA PRUEBA|  1                    |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|4c52b1cee185e419182fc5362b3a45ed7f8f20a4|COMMIT PARA PRUEBA|  3                    |
+|4c52b1cee185e419182fc5362b3a45ed7f8f20a4|3de42f9222f93495088347120049ce550ba0a586|COMMIT PARA PRUEBA|  3                    |
