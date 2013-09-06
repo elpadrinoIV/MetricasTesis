@@ -21,8 +21,8 @@ Los archivos cambiados entre
 !3 Pruebas
 
 | Contar Archivos Modificados Entre Commits|
-| Commit Desde                           | Commit Hasta                           | Filtro           | Archivos Modificados? |
-|630abb361de9c70f4a6986594c4860224a9ce4cb|630abb361de9c70f4a6986594c4860224a9ce4cb|COMMIT PARA PRUEBA|  0                    |
-|630abb361de9c70f4a6986594c4860224a9ce4cb|74e5b2348bd9ed05eba89df571f24f76136658ad|COMMIT PARA PRUEBA|  1                    |
-|630abb361de9c70f4a6986594c4860224a9ce4cb|4c52b1cee185e419182fc5362b3a45ed7f8f20a4|COMMIT PARA PRUEBA|  3                    |
-|4c52b1cee185e419182fc5362b3a45ed7f8f20a4|3de42f9222f93495088347120049ce550ba0a586|COMMIT PARA PRUEBA|  3                    |
+| Hash Commit Desde                      | Hash Commit Hasta                      | Filtro           | Cantidad Archivos Modificados? |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|630abb361de9c70f4a6986594c4860224a9ce4cb|COMMIT PARA PRUEBA|  0                             |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|74e5b2348bd9ed05eba89df571f24f76136658ad|COMMIT PARA PRUEBA|  1                             |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|4c52b1cee185e419182fc5362b3a45ed7f8f20a4|COMMIT PARA PRUEBA|  3                             |
+|4c52b1cee185e419182fc5362b3a45ed7f8f20a4|3de42f9222f93495088347120049ce550ba0a586|COMMIT PARA PRUEBA|  3                             |
