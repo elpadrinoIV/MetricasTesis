@@ -20,16 +20,7 @@ module MetricasTesis
     def get_archivos_cambiados (commit_desde, commit_hasta)
       lista_commits = @commits_handler.commits_entre_commits(commit_desde, commit_hasta)
 
-      archivos_cambiados = Hash.new
-
-      lista_commits.each do |commit| 
-        archivos_cambiados_commit = `git diff --name-status #{commit}^ #{commit}`.split("\n")
-        archivos_cambiados_commit = self.filtrar_archivos(archivos_cambiados_commit, '^M')
-
-        archivos_cambiados[commit] = archivos_cambiados_commit
-      end
-
-      archivos_cambiados
+      self.get_archivos_cambiados_de_lista(lista_commits)
     end
 
     ##
