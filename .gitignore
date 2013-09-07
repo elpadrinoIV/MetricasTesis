@@ -1,5 +1,6 @@
 *-*.zip
+*.jar
 FitNesseRoot/files
-FitNesseRoot/ErrorLog
+FitNesseRoot/ErrorLogs
 nbproject
 doc
