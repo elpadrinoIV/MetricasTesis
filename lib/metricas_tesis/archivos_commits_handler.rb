@@ -33,6 +33,31 @@ module MetricasTesis
     end
 
     ##
+    # Obtiene los archivos que cambiaron en un grupo de commits
+    # Params:
+    # +lista_commits+:: lista con los commits
+    #
+    # Devuelve un hash con los archivos que fueron modificados en cada commit
+    #
+    # Lanza la excepción ArgumentError si:
+    # - No existe alguno de los commits
+    def get_archivos_cambiados_de_lista (lista_commits)
+      archivos_cambiados = Hash.new
+
+      lista_commits.each do |commit|
+        if !@commits_handler.existe_commit? commit
+          raise ArgumentError, 'commit_desde no existe'
+        end
+        archivos_cambiados_commit = `git diff --name-status #{commit}^ #{commit}`.split("\n")
+        archivos_cambiados_commit = self.filtrar_archivos(archivos_cambiados_commit, '^M')
+
+        archivos_cambiados[commit] = archivos_cambiados_commit
+      end
+
+      archivos_cambiados
+    end
+
+    ##
     # Filtra que archivos cumplen con un cierto filtro.
     # Params:
     # +archivos+: lista de archivos con el formato +[AMD]+ path/al/archivo

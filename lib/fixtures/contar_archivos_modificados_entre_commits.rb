@@ -1,7 +1,9 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 
+require 'archivos_commits_handler'
 require 'commits_handler'
+
 module Fixtures
   class ContarArchivosModificadosEntreCommits
     def initialize
