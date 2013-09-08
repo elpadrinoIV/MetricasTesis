@@ -1,0 +1,41 @@
+La idea es describir la historia que quiero crear a través de una serie de commits y branchs de prueba.
+Orig es la versión en la que subo este archivo
+La linea de arriba es master
+La linea de abajo es el branch de prueba
+
+Orig --- A --- D --- E ---F --- G
+          \              /
+		   \            /
+		    \          / 
+		      B --- C /
+
+Detalle:
+* A: Se agrega carpeta con 5 archivos:
+     - arch1_para_master
+	 - arch2_para_master
+	 - arch3_para_master
+	 - arch1_para_branch
+	 - arch2_para_branch
+
+* B: Se crea el nuevo branch. Estando en ese branch, se agregan 3 archivos a la carpeta:
+     - arch3_para_branch
+	 - arch4_para_branch
+	 - arch5_para_branch
+
+* C: Estando todavía en el branch, se modifican 2 archivos:
+     - arch1_para_branch
+	 - arch2_para_branch
+
+* D: Se cambia a master, se agregan 1 archivo:
+     - arch4_para_master
+
+* E: Estando todavía en master, se modifican 3 archivos:
+     - arch1_para_master
+     - arch2_para_master
+     - arch3_para_master
+
+* F: commit automático resultado de hacer git merge branch
+
+* G: Se borra toda la carpeta con todos los archivos, de modo que el resultado neto desde A hasta G es nada
+
+
