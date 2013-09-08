@@ -1,6 +1,7 @@
+|FrontPage.MetricasTesisProject.ArchivosModificadosSuite.ContarArchivosModificadosEntreCommitsFitNesse||22:44:02 Sat, Sep 07, 2013|
+|FrontPage.MetricasTesisProject.ArchivosModificadosSuite||20:28:58 Sat, Sep 07, 2013|
+|FrontPage.MetricasTesisProject||20:21:12 Sat, Sep 07, 2013|
 |FrontPage.MetricasTesisProject.ArchivosModificadosSuite.ContarArchivosModificadosEntreCommits||23:57:42 Thu, Sep 05, 2013|
 |FrontPage.MetricasTesisProject.FiltroCommitsDePrueba||23:28:10 Thu, Sep 05, 2013|
-|FrontPage.MetricasTesisProject||20:58:03 Thu, Sep 05, 2013|
 |FrontPage.MetricasTesisProject.SetUp||12:07:47 mié, sep 04, 2013|
-|FrontPage.MetricasTesisProject.ArchivosModificadosSuite||11:36:45 mié, sep 04, 2013|
 |FrontPage||11:16:15 mié, sep 04, 2013|

@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/helper.rb'
 require 'commits_handler'
 class CommitsEntreCommitsTest < Test::Unit::TestCase
   def setup
-    path_repos = '/home/stoma/Documents/ruby/MetricasTesis'
+    path_repos = './.git'
     @commits_handler = MetricasTesis::CommitsHandler.new(path_repos)
   end
 

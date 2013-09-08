@@ -5,7 +5,7 @@ require 'commits_handler'
 module Fixtures
   class ContarCommitsQueSonDePrueba
     def initialize
-      path_repos = '/home/stoma/Documents/ruby/MetricasTesis'
+      path_repos = './.git'
       @commits_handler = MetricasTesis::CommitsHandler.new(path_repos)
     end
 

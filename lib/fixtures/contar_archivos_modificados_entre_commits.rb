@@ -7,7 +7,7 @@ require 'commits_handler'
 module Fixtures
   class ContarArchivosModificadosEntreCommits
     def initialize
-      path_repos = '/home/stoma/Documents/ruby/MetricasTesis'
+      path_repos = './.git'
       @commits_handler = MetricasTesis::CommitsHandler.new(path_repos)
       @archivos_commits_handler = MetricasTesis::ArchivosCommitsHandler.new(path_repos)
     end

@@ -28,7 +28,7 @@ module MetricasTesis
         raise ArgumentError, 'commit_hasta no existe'
       end
 
-      commits = `git rev-list #{commit_desde}^..#{commit_hasta}`.split
+      commits = `git --git-dir='#{@path_to_repo}' rev-list #{commit_desde}^..#{commit_hasta}`.split
       if (commits.empty?)
         raise ArgumentError, 'no se puede llegar de commit_desde a commit_hasta'
       end
@@ -45,7 +45,7 @@ module MetricasTesis
     # Params:
     # +commit_hash+:: hash
     def existe_commit? (commit_hash)
-      `git rev-list #{commit_hash} 2>&1`; existe=$?.success?
+      `git  --git-dir='#{@path_to_repo}'  rev-list #{commit_hash} 2>&1`; existe=$?.success?
       existe
     end
 
@@ -53,7 +53,7 @@ module MetricasTesis
       commits_filtrados = Array.new
 
       commits.each do |commit|
-        mensaje = `git show -s --oneline #{commit}`
+        mensaje = `git  --git-dir='#{@path_to_repo}'  show -s --oneline #{commit}`
         
         if /#{filtro}/ =~ mensaje
           commits_filtrados << commit

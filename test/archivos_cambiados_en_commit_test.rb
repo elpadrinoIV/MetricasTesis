@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/helper.rb'
 require 'archivos_commits_handler'
 class ArchivosCambiadosEnCommitTest < Test::Unit::TestCase
   def setup
-    path_repos = '/home/stoma/Documents/ruby/MetricasTesis'
+    path_repos = './.git'
     @ach = MetricasTesis::ArchivosCommitsHandler.new(path_repos)
   end
 

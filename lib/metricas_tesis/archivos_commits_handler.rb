@@ -39,7 +39,7 @@ module MetricasTesis
         if !@commits_handler.existe_commit? commit
           raise ArgumentError, 'commit_desde no existe'
         end
-        archivos_cambiados_commit = `git diff --name-status #{commit}^ #{commit}`.split("\n")
+        archivos_cambiados_commit = `git  --git-dir='#{@path_to_repo}'  diff --name-status #{commit}^ #{commit}`.split("\n")
         archivos_cambiados_commit = self.filtrar_archivos(archivos_cambiados_commit, '^M')
 
         archivos_cambiados[commit] = archivos_cambiados_commit
