@@ -28,7 +28,31 @@ module MetricasTesis
         raise ArgumentError, 'commit_hasta no existe'
       end
 
-      commits = `git --git-dir='#{@path_to_repo}' rev-list #{commit_desde}^..#{commit_hasta}`.split
+      commits = `git --git-dir='#{@path_to_repo}' log --pretty=format:"%H" --reverse`.split
+      
+      commits_reales = Array.new
+      ya_encontre_commit_desde = false
+      ya_encontre_commit_hasta = false
+      commits.each do |commit|
+        if commit == commit_desde
+          ya_encontre_commit_desde = true
+        end
+        
+        if ya_encontre_commit_desde && !ya_encontre_commit_hasta
+          commits_reales << commit
+        end
+
+        if commit == commit_hasta
+          ya_encontre_commit_hasta = true
+        end
+      end
+
+      if ya_encontre_commit_desde && ya_encontre_commit_hasta
+        commits = commits_reales
+      else
+        commits = Array.new
+      end
+      
       if (commits.empty?)
         raise ArgumentError, 'no se puede llegar de commit_desde a commit_hasta'
       end
