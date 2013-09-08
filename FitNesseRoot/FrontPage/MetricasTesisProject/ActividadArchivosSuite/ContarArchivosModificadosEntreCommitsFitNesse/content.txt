@@ -7,4 +7,3 @@ Esta prueba está hecha sobre la historia de Fitnesse
 | Contar Archivos Modificados Entre Commits Fitnesse|
 | Hash Commit Desde                      | Hash Commit Hasta                      | Cantidad Archivos Modificados? |
 |3b34a56e5bea661bd4bab85b4f4a89475e80e414|3b34a56e5bea661bd4bab85b4f4a89475e80e414| 1                              |
-|ecf5891825638999af3d22b4c9fd340911e6a3e9|7b4a07a80d2286bac68ace66eb1e5c4d5d9ebc44| 3                              |
