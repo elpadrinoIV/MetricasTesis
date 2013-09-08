@@ -25,17 +25,21 @@ module Fixtures
     end
 
     def cantidad_archivos_agregados
-      # lista_commits = @commits_handler.commits_entre_commits(@commit_desde, @commit_hasta, @filtro)
-      # archivos_modificados = @archivos_commits_handler.get_archivos_cambiados_de_lista(lista_commits)
-      # cantidad = archivos_modificados.values.inject(0) {|total,val| total + val.size}
-      0
+      lista_commits = @commits_handler.commits_entre_commits(@commit_desde, @commit_hasta, @filtro)
+      archivos_agregados = @archivos_commits_handler.get_archivos_de_lista(lista_commits, ['A'])
+      cantidad = archivos_agregados.values.inject(0) {|total,val| total + val.size}
+      cantidad
     end
 
     def cantidad_archivos_agregados_menos_eliminados
-      # lista_commits = @commits_handler.commits_entre_commits(@commit_desde, @commit_hasta, @filtro)
-      # archivos_modificados = @archivos_commits_handler.get_archivos_cambiados_de_lista(lista_commits)
-      # cantidad = archivos_modificados.values.inject(0) {|total,val| total + val.size}
-      0
+      lista_commits = @commits_handler.commits_entre_commits(@commit_desde, @commit_hasta, @filtro)
+      archivos_agregados = @archivos_commits_handler.get_archivos_de_lista(lista_commits, ['A'])
+      cantidad_agregados = archivos_agregados.values.inject(0) {|total,val| total + val.size}
+
+      archivos_eliminados = @archivos_commits_handler.get_archivos_de_lista(lista_commits, ['D'])
+      cantidad_eliminados = archivos_eliminados.values.inject(0) {|total,val| total + val.size}
+
+      cantidad_agregados - cantidad_eliminados
     end
   end
 end
