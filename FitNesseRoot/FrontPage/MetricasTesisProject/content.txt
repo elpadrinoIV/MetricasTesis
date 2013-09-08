@@ -9,4 +9,4 @@ Proyecto de métricas que voy a usar para mi tesis de grado.
 
 >SetUp
 >FiltroCommitsDePrueba
->ArchivosModificadosSuite
+>ActividadArchivosSuite

@@ -1,0 +1,6 @@
+Suite para archivos modificados.
+
+>ContarArchivosModificadosEntreCommits
+>ContarArchivosModificadosEntreCommitsFitNesse
+
+>ContarArchivosAgregadosEntreCommits
