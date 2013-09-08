@@ -22,7 +22,7 @@ module Fixtures
 
     def cantidad_archivos_modificados
       lista_commits = @commits_handler.commits_entre_commits(@commit_desde, @commit_hasta)
-      archivos_modificados = @archivos_commits_handler.get_archivos_cambiados_de_lista(lista_commits)
+      archivos_modificados = @archivos_commits_handler.get_archivos_de_lista(lista_commits, ['M'])
       cantidad = archivos_modificados.values.inject(0) {|total,val| total + val.size}
     end
   end

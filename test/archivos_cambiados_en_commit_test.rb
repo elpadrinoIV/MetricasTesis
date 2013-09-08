@@ -11,7 +11,7 @@ class ArchivosCambiadosEnCommitTest < Test::Unit::TestCase
     commit_desde = '630abb361de9c70f4a6986594c4860224a9ce4cb'
     commit_hasta = '630abb361de9c70f4a6986594c4860224a9ce4cb'
 
-    archivos_cambiados = @ach.get_archivos_cambiados(commit_desde, commit_hasta)
+    archivos_cambiados = @ach.get_archivos(commit_desde, commit_hasta, ['M'])
 
     commits_esperados = 1
     commits_obtenidos = archivos_cambiados.size
@@ -26,7 +26,7 @@ class ArchivosCambiadosEnCommitTest < Test::Unit::TestCase
     commit_desde = '74e5b2348bd9ed05eba89df571f24f76136658ad'
     commit_hasta = '74e5b2348bd9ed05eba89df571f24f76136658ad'
 
-    archivos_cambiados = @ach.get_archivos_cambiados(commit_desde, commit_hasta)
+    archivos_cambiados = @ach.get_archivos(commit_desde, commit_hasta, ['M'])
 
     commits_esperados = 1
     commits_obtenidos = archivos_cambiados.size
@@ -41,7 +41,7 @@ class ArchivosCambiadosEnCommitTest < Test::Unit::TestCase
     commit_desde = '4c52b1cee185e419182fc5362b3a45ed7f8f20a4'
     commit_hasta = '4c52b1cee185e419182fc5362b3a45ed7f8f20a4'
 
-    archivos_cambiados = @ach.get_archivos_cambiados(commit_desde, commit_hasta)
+    archivos_cambiados = @ach.get_archivos(commit_desde, commit_hasta, ['M'])
 
     commits_esperados = 1
     commits_obtenidos = archivos_cambiados.size
@@ -55,7 +55,7 @@ class ArchivosCambiadosEnCommitTest < Test::Unit::TestCase
   def test_varios_archivos_cambiados_varios_commits
     commit_desde = '630abb361de9c70f4a6986594c4860224a9ce4cb'
     commit_hasta = '3de42f9222f93495088347120049ce550ba0a586'
-    archivos_cambiados = @ach.get_archivos_cambiados(commit_desde, commit_hasta)
+    archivos_cambiados = @ach.get_archivos(commit_desde, commit_hasta, ['M'])
 
     commits_esperados = 4
     commits_obtenidos = archivos_cambiados.size
@@ -71,7 +71,7 @@ class ArchivosCambiadosEnCommitTest < Test::Unit::TestCase
     commit_hasta = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
     
     assert_raise(ArgumentError) do
-      @ach.get_archivos_cambiados(commit_desde, commit_hasta)
+      @ach.get_archivos(commit_desde, commit_hasta, ['M'])
     end
   end
 
@@ -81,7 +81,7 @@ class ArchivosCambiadosEnCommitTest < Test::Unit::TestCase
     lista_commits << '74e5b2348bd9ed05eba89df571f24f76136658ad'
     lista_commits << '3de42f9222f93495088347120049ce550ba0a586'
 
-    archivos_cambiados = @ach.get_archivos_cambiados_de_lista(lista_commits)
+    archivos_cambiados = @ach.get_archivos_de_lista(lista_commits, ['M'])
 
     commits_esperados = 3
     commits_obtenidos = archivos_cambiados.size

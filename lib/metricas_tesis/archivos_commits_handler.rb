@@ -7,40 +7,61 @@ module MetricasTesis
     end
 
     ##
-    # Obtiene los archivos que cambiaron en un grupo de commits
+    # Obtiene los archivos que fueron A, M o D en un grupo de commits
     # Params:
     # +commit_desde+:: se toman los commits desde este commit inclusive
     # +commit_hasta+:: se toman los commits hasta este commit inclusive
+    # +condiciones+:: lista que indica que actividad se busca:
+    # * +A+:: archivos <b>a</b>gregados
+    # * +M+:: archivos <b>m</b>odificados
+    # * +D+:: archivos <b>d</b>eleted
     #
-    # Devuelve un hash con los archivos que fueron modificados en cada commit
+    # Devuelve un hash con los archivos que cumplen con las condiciones
+    # especificadas en cada commit
     #
     # Lanza la excepción ArgumentError si:
     # - No existe alguno de los commits
     # - +commit_desde+ ocurre luego de +commit_hasta+
-    def get_archivos_cambiados (commit_desde, commit_hasta)
+    def get_archivos (commit_desde, commit_hasta, condiciones)
       lista_commits = @commits_handler.commits_entre_commits(commit_desde, commit_hasta)
 
-      self.get_archivos_cambiados_de_lista(lista_commits)
+      self.get_archivos_de_lista(lista_commits, condiciones)
     end
 
     ##
     # Obtiene los archivos que cambiaron en un grupo de commits
     # Params:
     # +lista_commits+:: lista con los commits
+    # +condiciones+:: lista que indica que actividad se busca:
+    # * +A+:: archivos <b>a</b>gregados
+    # * +M+:: archivos <b>m</b>odificados
+    # * +D+:: archivos <b>d</b>eleted
     #
-    # Devuelve un hash con los archivos que fueron modificados en cada commit
+    # Devuelve un hash con los archivos que cumplen con las condiciones
+    # especificadas en cada commit
     #
     # Lanza la excepción ArgumentError si:
     # - No existe alguno de los commits
-    def get_archivos_cambiados_de_lista (lista_commits)
+    def get_archivos_de_lista (lista_commits, condiciones)
       archivos_cambiados = Hash.new
+
+      regex = ""
+      condiciones.each do |condicion|
+        if /(^[AMD]$)/ =~ condicion
+          regex += condicion
+        end
+      end
+
+      if !regex.empty?
+        regex = '^[' + regex + ']'
+      end
 
       lista_commits.each do |commit|
         if !@commits_handler.existe_commit? commit
           raise ArgumentError, 'commit_desde no existe'
         end
         archivos_cambiados_commit = `git  --git-dir='#{@path_to_repo}'  diff --name-status #{commit}^ #{commit}`.split("\n")
-        archivos_cambiados_commit = self.filtrar_archivos(archivos_cambiados_commit, '^M')
+        archivos_cambiados_commit = self.filtrar_archivos(archivos_cambiados_commit, regex)
 
         archivos_cambiados[commit] = archivos_cambiados_commit
       end
