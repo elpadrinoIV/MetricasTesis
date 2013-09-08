@@ -91,4 +91,20 @@ class ArchivosCambiadosEnCommitTest < Test::Unit::TestCase
     assert_equal(commits_esperados, commits_obtenidos)
     assert_equal(archivos_modificados_esperados, archivos_modificados_obtenidos)
   end
+
+  def test_varios_archivos_con_merge
+    lista_commits = Array.new
+    commit_desde = '651500edb67b9580e0b3ae3c82d27529c5fcab0f'
+    commit_hasta = '900968c4b3e365bd7ca297dedb589c7942a7f287'
+
+    archivos_cambiados = @ach.get_archivos(commit_desde, commit_hasta, ['M'])
+
+    commits_esperados = 7
+    commits_obtenidos = archivos_cambiados.size
+    archivos_modificados_esperados = 5
+    archivos_modificados_obtenidos = archivos_cambiados.values.inject(0) {|total,val| total + val.size}
+
+    assert_equal(commits_esperados, commits_obtenidos)
+    assert_equal(archivos_modificados_esperados, archivos_modificados_obtenidos)
+  end
 end

@@ -1,3 +1,4 @@
+|FrontPage.MetricasTesisProject.ActividadArchivosSuite.ContarArchivosModificadosEntreCommits||19:32:51 Sun, Sep 08, 2013|
 |FrontPage.MetricasTesisProject.ActividadArchivosSuite.ContarArchivosAgregadosEntreCommits||16:00:20 Sun, Sep 08, 2013|
 |FrontPage.MetricasTesisProject.ActividadArchivosSuite||11:43:24 Sun, Sep 08, 2013|
 |FrontPage.MetricasTesisProject.ArchivosModificadosSuite.ContarArchivosModificadosEntreCommitsFitNesse||22:56:32 Sat, Sep 07, 2013|
