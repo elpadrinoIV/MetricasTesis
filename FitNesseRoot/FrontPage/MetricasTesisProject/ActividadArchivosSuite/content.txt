@@ -4,3 +4,5 @@ Suite para archivos modificados.
 >ContarArchivosModificadosEntreCommitsFitNesse
 
 >ContarArchivosAgregadosEntreCommits
+
+>ContarActividadTestsUnitarios

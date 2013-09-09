@@ -1,0 +1,9 @@
+Dados 2 commits (indicados a través de su hash), quiero contar todos los tests unitarios que fueron agregados, modificados o eliminados, incluyendo esos 2 commits.
+
+!3 Pruebas
+
+| Contar Actividad Tests Unitarios Entre Commits|
+| Hash Commit Desde                      | Hash Commit Hasta                      | Filtro           |Patron| Cantidad Archivos Agregados  ? | Cantidad Archivos Modificados? | Cantidad Archivos Eliminados? |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|630abb361de9c70f4a6986594c4860224a9ce4cb|COMMIT PARA PRUEBA|TestData/Java/Test*|  1                             | 0                              | 0                             |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|3de42f9222f93495088347120049ce550ba0a586|COMMIT PARA PRUEBA|TestData/Java/Test*|  3                             | 4                              | 0                             |
+|630abb361de9c70f4a6986594c4860224a9ce4cb|f976c8720ee5aca521f1d5062ae1b280890e843d|COMMIT PARA PRUEBA|TestData/Java/Test*|  3                             | 4                              | 1                             |
