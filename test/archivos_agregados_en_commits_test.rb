@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/helper.rb'
+require 'test/unit'
 
 require 'archivos_commits_handler'
 class ArchivosAgregadosEnCommitTest < Test::Unit::TestCase
