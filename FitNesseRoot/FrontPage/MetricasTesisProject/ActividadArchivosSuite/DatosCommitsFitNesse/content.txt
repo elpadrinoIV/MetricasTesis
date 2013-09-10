@@ -1,0 +1,156 @@
+Los siguientes datos son de fitnesse
+
+| Comment                                                               |
+| Commit SHA                             | Acción           | Actividad AT  | Actividad UT | Actividad Normal |
+|082236e0874ece389ce1c59a28eae62e0ae9a500|{{{!-
+M       src/fitnesse/slim/StackTraceEnricher.java
+M       src/fitnesse/slim/StackTraceEnricherTest.java-!}}}    | -  | {{{!- M: 1-!}}} | {{{!- M: 1-!}}}|
+|2484f914c7fad81edff0b9337d0fbaa0f911e707|{{{!-
+M       src/fitnesse/responders/run/formatters/SuiteExecutionReportFormatterTest.java
+M       src/fitnesse/wikitext/parser/LastModified.java
+M       src/fitnesse/wikitext/parser/Today.java
+M       src/fitnesse/wikitext/test/LastModifiedTest.java
+M       src/fitnesse/wikitext/test/TodayTest.java
+M       src/util/Clock.java
+D       src/util/SystemTimeKeeper.java
+D       src/util/TestClock.java
+D       src/util/TestTimeKeeper.java
+D       src/util/TimeKeeper.java-!}}}    | -  | {{{!- M: 3-!}}} | {{{!- M: 3
+ D: 4-!}}}|
+|9d0d40129bc297c414629eb7c4c2459affd292c1|{{{!-M       src/fitnesse/FitNesseContextTest.java
+M       src/fitnesse/components/AttributeWikiPageFinderTest.java
+M       src/fitnesse/components/ContentReplacingSearchObserverTest.java
+M       src/fitnesse/components/RegularExpressionWikiPageFinderTest.java
+M       src/fitnesse/components/TitleWikiPageFinderTest.java
+M       src/fitnesse/http/ChunkedResponseTest.java
+M       src/fitnesse/responders/NameWikiPageResponderTest.java
+M       src/fitnesse/responders/files/FileResponderTest.java
+M       src/fitnesse/responders/run/ExposeThreadingIssueInMockResponseTest.java
+M       src/fitnesse/responders/run/JavaFormatterTest.java
+M       src/fitnesse/responders/run/SuiteContentsFinderTest.java
+M       src/fitnesse/responders/run/SuiteResponderTest.java
+M       src/fitnesse/slim/SlimServiceTest.java
+M       src/fitnesse/slim/fixtureInteraction/DefaultInteractionTest.java
+M       src/fitnesse/testsystems/ExecutionLogTest.java
+M       src/fitnesse/testsystems/PageListSetUpTearDownSurrounderTest.java
+M       src/fitnesse/testsystems/slim/tables/QueryTableBaseTest.java
+M       src/fitnesse/updates/FileUpdateTest.java
+M       src/fitnesse/updates/UpdateFileListTest.java
+M       src/fitnesse/util/HtmlParserToolsTest.java
+M       src/fitnesse/wikitext/test/WikiWordBuilderTest.java-!}}}    | -  | {{{!- M: 21-!}}} | {{{!- - -!}}}|
+|fe1360a8cab830c95b084e948638c2c5d1fc1f42|{{{!-M       build.xml
+M       src/fitnesse/slim/StatementExecutor.java
+A       src/fitnesse/slim/StatementExecutorTest.java
+A       src/fitnesse/slim/SystemUnderTest.java-!}}}    |-  | {{{!- A: 1 
+(SystemUnderTest.java está excluded) -!}}} | {{{!- M: 1 
+(build.xml no cuenta) -!}}}|
+|74273e9ca47ea05ad453e9b2b075849ee7a41d3c|{{{!-
+M       src/fitnesse/ComponentFactory.java
+M       src/fitnesse/responders/PacketResponder.java
+M       src/fitnesse/responders/run/SuiteSpecificationRunner.java
+M       src/fitnesse/responders/run/formatters/XmlFormatter.java
+M       src/fitnesse/responders/testHistory/HistoryComparer.java
+M       src/fitnesse/responders/testHistory/TableListComparer.java
+M       src/fitnesse/testsystems/slim/HtmlSlimTestSystem.java
+M       src/fitnesse/testsystems/slim/MockSlimTestContext.java
+M       src/fitnesse/testsystems/slim/SlimTestContext.java
+M       src/fitnesse/testsystems/slim/SlimTestSystem.java
+
+D       src/fitnesse/slimTables/ComparatorUtil.java
+D       src/fitnesse/slimTables/DecisionTable.java
+D       src/fitnesse/slimTables/HtmlTable.java
+D       src/fitnesse/slimTables/HtmlTableScanner.java
+D       src/fitnesse/slimTables/ImportTable.java
+D       src/fitnesse/slimTables/LibraryTable.java
+D       src/fitnesse/slimTables/OrderedQueryTable.java
+D       src/fitnesse/slimTables/QueryTable.java
+D       src/fitnesse/slimTables/ScenarioTable.java
+D       src/fitnesse/slimTables/ScriptTable.java
+D       src/fitnesse/slimTables/SlimErrorTable.java
+D       src/fitnesse/slimTables/SlimTable.java
+D       src/fitnesse/slimTables/SlimTableFactory.java
+D       src/fitnesse/slimTables/SlimTableTestSupport.java
+D       src/fitnesse/slimTables/SubsetQueryTable.java
+D       src/fitnesse/slimTables/SyntaxError.java
+D       src/fitnesse/slimTables/Table.java
+D       src/fitnesse/slimTables/TableScanner.java
+D       src/fitnesse/slimTables/TableTable.java
+D       src/fitnesse/slimTables/responses/ErrorResponse.java
+D       src/fitnesse/slimTables/responses/FailResponse.java
+D       src/fitnesse/slimTables/responses/IgnoreResponse.java
+D       src/fitnesse/slimTables/responses/PassResponse.java
+D       src/fitnesse/slimTables/responses/PlainResponse.java
+D       src/fitnesse/slimTables/responses/Response.java
+
+A       src/fitnesse/testsystems/slim/HtmlTable.java
+A       src/fitnesse/testsystems/slim/HtmlTableScanner.java
+A       src/fitnesse/testsystems/slim/Table.java
+A       src/fitnesse/testsystems/slim/TableScanner.java
+A       src/fitnesse/testsystems/slim/responses/ErrorResponse.java
+A       src/fitnesse/testsystems/slim/responses/FailResponse.java
+A       src/fitnesse/testsystems/slim/responses/IgnoreResponse.java
+A       src/fitnesse/testsystems/slim/responses/PassResponse.java
+A       src/fitnesse/testsystems/slim/responses/PlainResponse.java
+A       src/fitnesse/testsystems/slim/responses/Response.java
+A       src/fitnesse/testsystems/slim/tables/ComparatorUtil.java
+A       src/fitnesse/testsystems/slim/tables/DecisionTable.java
+A       src/fitnesse/testsystems/slim/tables/ImportTable.java
+A       src/fitnesse/testsystems/slim/tables/LibraryTable.java
+A       src/fitnesse/testsystems/slim/tables/OrderedQueryTable.java
+A       src/fitnesse/testsystems/slim/tables/QueryTable.java
+A       src/fitnesse/testsystems/slim/tables/ScenarioTable.java
+A       src/fitnesse/testsystems/slim/tables/ScriptTable.java
+A       src/fitnesse/testsystems/slim/tables/SlimErrorTable.java
+A       src/fitnesse/testsystems/slim/tables/SlimTable.java
+A       src/fitnesse/testsystems/slim/tables/SlimTableFactory.java
+A       src/fitnesse/testsystems/slim/tables/SlimTableTestSupport.java
+A       src/fitnesse/testsystems/slim/tables/SubsetQueryTable.java
+A       src/fitnesse/testsystems/slim/tables/SyntaxError.java
+A       src/fitnesse/testsystems/slim/tables/TableTable.java
+---
+M       src/fitnesse/ComponentFactoryTest.java
+M       src/fitnesse/responders/run/SuiteSpecificationRunnerTest.java
+M       src/fitnesse/responders/run/slimResponder/HtmlSlimResponderTest.java
+M       src/fitnesse/responders/testHistory/TableListComparerTest.java
+
+D       src/fitnesse/slimTables/ComparatorUtilTest.java
+D       src/fitnesse/slimTables/DecisionTableTest.java
+D       src/fitnesse/slimTables/HtmlTableScannerTest.java
+D       src/fitnesse/slimTables/ImportTableTest.java
+D       src/fitnesse/slimTables/LibraryTableTest.java
+D       src/fitnesse/slimTables/OrderedQueryTableTest.java
+D       src/fitnesse/slimTables/QueryTableBaseTest.java
+D       src/fitnesse/slimTables/QueryTableTest.java
+D       src/fitnesse/slimTables/ReturnedValueExpectationTest.java
+D       src/fitnesse/slimTables/ScenarioAndDecisionTableTest.java
+D       src/fitnesse/slimTables/ScenarioAndScriptTableTest.java
+D       src/fitnesse/slimTables/ScenarioTableTest.java
+D       src/fitnesse/slimTables/ScriptTableTest.java
+D       src/fitnesse/slimTables/SlimTableFactoryTest.java
+D       src/fitnesse/slimTables/SlimTableTest.java
+D       src/fitnesse/slimTables/SubsetQueryTableTest.java
+D       src/fitnesse/slimTables/TableTableTest.java
+
+A       src/fitnesse/testsystems/slim/HtmlTableScannerTest.java
+A       src/fitnesse/testsystems/slim/tables/ComparatorUtilTest.java
+A       src/fitnesse/testsystems/slim/tables/DecisionTableTest.java
+A       src/fitnesse/testsystems/slim/tables/ImportTableTest.java
+A       src/fitnesse/testsystems/slim/tables/LibraryTableTest.java
+A       src/fitnesse/testsystems/slim/tables/OrderedQueryTableTest.java
+A       src/fitnesse/testsystems/slim/tables/QueryTableBaseTest.java
+A       src/fitnesse/testsystems/slim/tables/QueryTableTest.java
+A       src/fitnesse/testsystems/slim/tables/ReturnedValueExpectationTest.java
+A       src/fitnesse/testsystems/slim/tables/ScenarioAndDecisionTableTest.java
+A       src/fitnesse/testsystems/slim/tables/ScenarioAndScriptTableTest.java
+A       src/fitnesse/testsystems/slim/tables/ScenarioTableTest.java
+A       src/fitnesse/testsystems/slim/tables/ScriptTableTest.java
+A       src/fitnesse/testsystems/slim/tables/SlimTableFactoryTest.java
+A       src/fitnesse/testsystems/slim/tables/SlimTableTest.java
+A       src/fitnesse/testsystems/slim/tables/SubsetQueryTableTest.java
+A       src/fitnesse/testsystems/slim/tables/TableTableTest.java
+-!}}}    | -  | {{{!- M: 4
+A: 16 
+D: 16
+(QueryTableBaseTest.java no cuenta) -!}}} | {{{!- M: 10
+A: 25
+D: 25 -!}}}|
