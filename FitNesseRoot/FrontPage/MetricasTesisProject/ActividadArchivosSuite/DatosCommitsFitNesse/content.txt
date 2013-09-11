@@ -148,9 +148,9 @@ A       src/fitnesse/testsystems/slim/tables/SlimTableFactoryTest.java
 A       src/fitnesse/testsystems/slim/tables/SlimTableTest.java
 A       src/fitnesse/testsystems/slim/tables/SubsetQueryTableTest.java
 A       src/fitnesse/testsystems/slim/tables/TableTableTest.java
--!}}}    | -  | {{{!- M: 4
+-!}}}    | -  | {{{!-M: 4
 A: 16 
 D: 16
-(QueryTableBaseTest.java no cuenta) -!}}} | {{{!- M: 10
+(QueryTableBaseTest.java no cuenta) -!}}} | {{{!-M: 10
 A: 25
 D: 25 -!}}}|
