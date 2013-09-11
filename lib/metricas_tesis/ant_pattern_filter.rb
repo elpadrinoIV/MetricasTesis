@@ -24,7 +24,7 @@ module MetricasTesis
 
     def cumple_patron? cadena, patron
       regex = obtener_regex patron
-      puts regex
+      
       /#{regex}/ =~ cadena
     end
 
@@ -33,9 +33,15 @@ module MetricasTesis
       # Si termina con / o con \, reemplazo por /** (o \**)
       regex = patron.gsub(/([\/\\])$/,'\1**')
 
+      regex.gsub!(/\/\*\*$/,'<<<<<<SEARCH_ALL_SUBFOLDERS>>>>>>')
+
       # No debe matchear una porción, sino todo, por eso
       # agrego ^ al principio y $ al final
       regex = '^' + regex + '$'
+
+      # El punto el regex lo toma como caracter especial para indicar
+      # "cualquier caracter". Lo reemplazo para que lo tome literal
+      regex.gsub!('.', '\\.')
 
       # los signos de pregunta son uno y solo 1 caracter cualquiera
       regex.gsub!('?', '.')
@@ -47,8 +53,9 @@ module MetricasTesis
       end
 
       regex = regex_splitted.join('([^/]+/)*')
+      regex.gsub!('<<<<<<SEARCH_ALL_SUBFOLDERS>>>>>>', '(/.*)*')
 
-      regex.gsub!('/**','(/.*)*')
+      
       regex
     end
   end
