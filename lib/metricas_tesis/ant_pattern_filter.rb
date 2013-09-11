@@ -23,16 +23,33 @@ module MetricasTesis
     end
 
     def cumple_patron? cadena, patron
-      regex = patron.gsub('?', '.')
-      regex.gsub!('*', '[^/]*')
+      regex = obtener_regex patron
       puts regex
       /#{regex}/ =~ cadena
     end
 
     private
     def obtener_regex patron
-      regex = patron.gsub('**', '.*')
-    end
+      # Si termina con / o con \, reemplazo por /** (o \**)
+      regex = patron.gsub(/([\/\\])$/,'\1**')
 
+      # No debe matchear una porción, sino todo, por eso
+      # agrego ^ al principio y $ al final
+      regex = '^' + regex + '$'
+
+      # los signos de pregunta son uno y solo 1 caracter cualquiera
+      regex.gsub!('?', '.')
+
+      regex_splitted = Array.new
+      regex.split('**/').each do |sub_regex|
+        # los asteriscos individuales son cualquier cosa menos una barra
+        regex_splitted << sub_regex.gsub('*', '[^/]*')
+      end
+
+      regex = regex_splitted.join('([^/]+/)*')
+
+      regex.gsub!('/**','(/.*)*')
+      regex
+    end
   end
 end
