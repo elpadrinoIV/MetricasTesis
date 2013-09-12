@@ -8,5 +8,5 @@ Proyecto de métricas que voy a usar para mi tesis de grado.
 !path lib/metricas_tesis
 
 >SetUp
->FiltroCommitsDePrueba
+>ContadorCommitsSuite
 >ActividadArchivosSuite
