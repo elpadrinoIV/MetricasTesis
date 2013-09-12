@@ -4,25 +4,31 @@ module MetricasTesis
       @fileset = ""
       @includes = Array.new
       @excludes = Array.new
+      @filtro_include = obtener_regex_filtro(:include)
+      @filtro_exclude = obtener_regex_filtro(:exclude)
     end
 
     def set_fileset fileset
       @fileset = fileset
       # si no termina en /, se lo agrego
       @fileset += '/' unless ( /\/$/ =~ fileset)
+
+      @filtro_exclude = obtener_regex_filtro(:exclude)
     end
 
     def add_include include
       @includes << include
+      @filtro_include = obtener_regex_filtro(:include)
     end
 
     def add_exclude exclude
       @excludes << exclude
+      @filtro_exclude = obtener_regex_filtro(:exclude)
     end
 
     def filtrar lista_archivos
       lista_filtrada = Array.new
-
+      
       lista_archivos.each do |archivo|
         lista_filtrada << archivo if cumple_filtro? archivo
       end
@@ -47,17 +53,13 @@ module MetricasTesis
     #   archivo = 'M      src/fitnesse/slim/ShutdownResponderTest.java'
     #
     def cumple_filtro? path_archivo
-      path_archivo.gsub(/^[A-Z]\s+/,'')
-      filtro_include = obtener_regex_filtro(:include)
-      filtro_exclude = obtener_regex_filtro(:exclude)
-
-      # puts "FILTRO_I#{filtro_include}FILTRO_I"
-      # puts "FILTRO_E#{filtro_exclude}FILTRO_E"
+      path_archivo.gsub!(/^[A-Z]\s+/,'')
+      
       cumple = false
-      if /#{filtro_include}/ =~ path_archivo
+      if /#{@filtro_include}/ =~ path_archivo
         cumple = true
         if (!@excludes.empty?)
-          matchea_excludes = /#{filtro_exclude}/ =~ path_archivo
+          matchea_excludes = /#{@filtro_exclude}/ =~ path_archivo
           cumple = cumple && !matchea_excludes
         end
       end

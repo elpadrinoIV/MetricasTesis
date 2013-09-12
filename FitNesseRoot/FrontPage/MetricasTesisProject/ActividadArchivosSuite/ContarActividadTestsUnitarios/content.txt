@@ -3,7 +3,7 @@ Dados 2 commits (indicados a través de su hash), quiero contar todos los tests 
 !include -c <ActividadArchivosSuite.DatosCommitsFitNesse
 
 
-|script|Set Up Patron|unit_test|
+|script|Set Up Patron|
 |set fileset |src/|
 |add include|**/*Test.java|
 |add exclude|**/ShutdownResponderTest.java|
@@ -18,6 +18,6 @@ Dados 2 commits (indicados a través de su hash), quiero contar todos los tests 
 | Hash Commit Desde                      | Hash Commit Hasta                      |Cantidad Archivos Agregados  ? | Cantidad Archivos Modificados? | Cantidad Archivos Eliminados? |
 |082236e0874ece389ce1c59a28eae62e0ae9a500|082236e0874ece389ce1c59a28eae62e0ae9a500|  0                            | 1                              | 0                             |
 |2484f914c7fad81edff0b9337d0fbaa0f911e707|2484f914c7fad81edff0b9337d0fbaa0f911e707|  0                            | 3                              | 0                             |
-|9d0d40129bc297c414629eb7c4c2459affd292c1|9d0d40129bc297c414629eb7c4c2459affd292c1|  0                            | 21                             | 0                             |
+|9d0d40129bc297c414629eb7c4c2459affd292c1|9d0d40129bc297c414629eb7c4c2459affd292c1|  0                            | 20                             | 0                             |
 |fe1360a8cab830c95b084e948638c2c5d1fc1f42|fe1360a8cab830c95b084e948638c2c5d1fc1f42|  1                            | 0                              | 0                             |
-|74273e9ca47ea05ad453e9b2b075849ee7a41d3c|74273e9ca47ea05ad453e9b2b075849ee7a41d3c|  4                            | 16                             | 16                            |
+|74273e9ca47ea05ad453e9b2b075849ee7a41d3c|74273e9ca47ea05ad453e9b2b075849ee7a41d3c|  16                           | 4                              | 16                            |

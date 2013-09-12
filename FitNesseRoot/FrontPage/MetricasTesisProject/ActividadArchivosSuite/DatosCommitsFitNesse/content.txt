@@ -37,7 +37,7 @@ M       src/fitnesse/testsystems/slim/tables/QueryTableBaseTest.java
 M       src/fitnesse/updates/FileUpdateTest.java
 M       src/fitnesse/updates/UpdateFileListTest.java
 M       src/fitnesse/util/HtmlParserToolsTest.java
-M       src/fitnesse/wikitext/test/WikiWordBuilderTest.java-!}}}    | -  | {{{!- M: 21-!}}} | {{{!- - -!}}}|
+M       src/fitnesse/wikitext/test/WikiWordBuilderTest.java-!}}}    | -  | {{{!- M: 20 (porq Query... esta excluded)-!}}} | {{{!- - -!}}}|
 |fe1360a8cab830c95b084e948638c2c5d1fc1f42|{{{!-M       build.xml
 M       src/fitnesse/slim/StatementExecutor.java
 A       src/fitnesse/slim/StatementExecutorTest.java
