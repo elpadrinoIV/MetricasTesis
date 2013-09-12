@@ -1,6 +1,7 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 
+require 'ant_pattern_filter'
 require 'archivos_commits_handler'
 require 'commits_handler'
 
@@ -19,20 +20,13 @@ module Fixtures
     def set_hash_commit_hasta hash
       @commit_hasta = hash
     end
-
-    def set_filtro filtro
-      @filtro = filtro
-    end
-
-    def set_patron patron
-      @patron = patron
-    end
-
+   
     def cantidad_archivos_agregados
-      # lista_commits = @commits_handler.commits_entre_commits(@commit_desde, @commit_hasta, @filtro)
-      # archivos_modificados = @archivos_commits_handler.get_archivos_de_lista(lista_commits, ['M'])
-      # cantidad = archivos_modificados.values.inject(0) {|total,val| total + val.size}
-      0
+      lista_commits = @commits_handler.commits_entre_commits(@commit_desde, @commit_hasta, @filtro)
+      hash_archivos_modificados = @archivos_commits_handler.get_archivos_de_lista(lista_commits, ['M'])
+      archivos_modificados = hash_archivos_modificados.values.flatten
+      cantidad = @patron_filter.filtrar(archivos_modificados).size
+      cantidad
     end
 
     def cantidad_archivos_modificados

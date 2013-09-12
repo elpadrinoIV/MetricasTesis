@@ -13,25 +13,42 @@ class PatronArchivosUnitTestsTest < Test::Unit::TestCase
     @patron_filter.add_exclude('**/MySystemUnderTest.java')
 
   end
-=begin
+
   def test_ninguna_prueba_unitaria
     lista = Array.new
-    lista << 'M       src/fitnesse/ComponentFactory.java'
-    lista << 'D       src/fitnesse/slimTables/ComparatorUtil.java'
-    lista << 'A       src/fitnesse/testsystems/slim/HtmlTable.java'
+    lista << 'src/fitnesse/ComponentFactory.java'
+    lista << 'src/fitnesse/slimTables/ComparatorUtil.java'
+    lista << 'src/fitnesse/testsystems/slim/HtmlTable.java'
 
     cantidad = @patron_filter.filtrar(lista).size
     assert_equal(0, cantidad)
   end
 
-  def test_ninguna_prueba_unitaria
+  def test_una_prueba_unitaria
     lista = Array.new
-    lista << 'M       src/fitnesse/ComponentFactory.java'
-    lista << 'D       src/fitnesse/slimTables/ComparatorUtil.java'
-    lista << 'A       src/fitnesse/testsystems/slim/HtmlTable.java'
+    lista << 'src/fitnesse/slim/StackTraceEnricher.java'
+    lista << 'src/fitnesse/slim/StackTraceEnricherTest.java'
+
+    cantidad = @patron_filter.filtrar(lista).size
+    assert_equal(1, cantidad)
+  end
+
+  def test_una_comun_una_matchea_exclude
+    lista = Array.new
+    lista << 'src/fitnesse/slim/ShutdownResponderTest.java'
+    lista << 'src/fitnesse/slim/StackTraceEnricherTest.java'
+
+    cantidad = @patron_filter.filtrar(lista).size
+    assert_equal(1, cantidad)
+  end
+
+  def test_fuera_de_dir_base
+    lista = Array.new
+    lista << 'usr/src/fitnesse/slim/ShutdownResponderTest.java'
+    lista << 'usr/src/fitnesse/slim/StackTraceEnricherTest.java'
 
     cantidad = @patron_filter.filtrar(lista).size
     assert_equal(0, cantidad)
   end
-=end
+
 end
