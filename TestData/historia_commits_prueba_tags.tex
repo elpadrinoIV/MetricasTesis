@@ -8,25 +8,25 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \begin{document}
 
-\begin{tikzpicture}[node distance=6mm and 10mm, common/.style={draw=green!50!black, rounded  corners, very thick, fill=green!50!white!50, font=\bfseries},minimum width=15mm, minimum height=10mm]
+\begin{tikzpicture}[node distance=6mm and 10mm, common/.style={draw=green!50!black, rounded  corners, very thick, fill=green!50!white!50, font=\bfseries},minimum width=15mm, text width=15mm, minimum height=10mm, text centered]
 \tikzstyle{fakenode}=[]
 \tikzstyle{texto}=[font=\ttfamily]
 \tikzset {>=stealth'}
 
-\node (C1) [common] at (0, 0) {C1};
-\node (C2) [common, right=of C1]   {C2};
-\node (C3) [common, below right=of C2]  {C3};
-\node (C4) [common, right=of C3]  {C4};
-\node (C5) [common, right=of C2]  {C5};
-\node (C6) [common, right=of C5]  {C6};
-\node (C7) [common, below right=of C4]  {C7};
-\node (C8) [common, right=of C7]  {C8};
-\node (C9) [common, right=of C6]  {C9};
-\node (C10) [common, right=of C9]  {C10};
-\node (C11) [common, right=of C8]  {C11};
+\node (C1) [common] at (0, 0) {C1 \verb+7c36b33+};
+\node (C2) [common, right=of C1]   {C2 \verb+bb67984+};
+\node (C3) [common, below right=of C2]  {C3 \verb+21e6548+};
+\node (C4) [common, right=of C3]  {C4 \verb+4a30b73+};
+\node (C5) [common, right=of C2]  {C5 \verb+0f5cc8f+};
+\node (C6) [common, right=of C5]  {C6 \verb+fd027a8+};
+\node (C7) [common, below right=of C4]  {C7 \verb+1625d51+};
+\node (C8) [common, right=of C7]  {C8 \verb+420f2b6+};
+\node (C9) [common, right=of C6]  {C9 \verb+6a9b728+};
+\node (C10) [common, right=of C9]  {C10 \verb+2d53e0a+};
+\node (C11) [common, right=of C8]  {C11 \verb+700d1bc+};
 \node (fakenode) [fakenode,right=of C10]  {};
-\node (C12) [common, right=of fakenode]  {C12};
-\node (C13) [common, right=of C12]  {C13};
+\node (C12) [common, right=of fakenode]  {C12 \verb+5fa7fe3+};
+\node (C13) [common, right=of C12]  {C13 \verb+ce61946+};
 
 % arriba
 \draw [<-](node cs:name=C1, anchor=east) -- (node cs:name=C2, anchor=west);
