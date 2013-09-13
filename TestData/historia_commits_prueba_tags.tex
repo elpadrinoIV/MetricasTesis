@@ -8,9 +8,9 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \begin{document}
 
-\begin{tikzpicture}[node distance=4mm and 10mm, common/.style={draw=green!50!black, rounded  corners, very thick, fill=green!30, inner sep=5pt, font=\bfseries},minimum width=15mm]
+\begin{tikzpicture}[node distance=6mm and 10mm, common/.style={draw=green!50!black, rounded  corners, very thick, fill=green!50!white!50, font=\bfseries},minimum width=15mm, minimum height=10mm]
 \tikzstyle{fakenode}=[]
-\tikzstyle{texto}=[]
+\tikzstyle{texto}=[font=\ttfamily]
 \tikzset {>=stealth'}
 
 \node (C1) [common] at (0, 0) {C1};
@@ -49,13 +49,13 @@
 \draw [<-](node cs:name=C11, anchor=north east) -- (node cs:name=C12, anchor=south west);
 
 % tags
-\node [texto,above=of C1,yshift=-5mm] {tag0};
-\node [texto,below=of C4,yshift=5mm] {tag1};
-\node [texto,above=of C6,yshift=-5mm] {tag2};
-\node [texto,below=of C8,yshift=5mm] {tag3};
-\node [texto,above=of C9,yshift=-5mm] {tag4};
-\node [texto,above=of C12,yshift=-5mm] {tag5};
-\node [texto,above=of C13,yshift=-5mm] {tag6};
+\node [texto,above=of C1,yshift=-7mm] {tag0};
+\node [texto,below=of C4,yshift=7mm] {tag1};
+\node [texto,above=of C6,yshift=-7mm] {tag2};
+\node [texto,below=of C8,yshift=7mm] {tag3};
+\node [texto,above=of C9,yshift=-7mm] {tag4};
+\node [texto,above=of C12,yshift=-7mm] {tag5};
+\node [texto,above=of C13,yshift=-7mm] {tag6};
 \end{tikzpicture}
 
 
