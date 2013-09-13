@@ -8,9 +8,10 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \begin{document}
 
-\begin{tikzpicture}[node distance=4mm and 6mm, common/.style={draw, fill=white, inner sep=5pt, font=\bfseries},minimum size=10mm]
+\begin{tikzpicture}[node distance=4mm and 10mm, common/.style={draw=green!50!black, rounded  corners, very thick, fill=green!30, inner sep=5pt, font=\bfseries},minimum width=15mm]
 \tikzstyle{fakenode}=[]
 \tikzstyle{texto}=[]
+\tikzset {>=stealth'}
 
 \node (C1) [common] at (0, 0) {C1};
 \node (C2) [common, right=of C1]   {C2};

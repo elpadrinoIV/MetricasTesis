@@ -1,5 +1,7 @@
 *-*.zip
 *.jar
+*.aux
+*.synctex.gz
 FitNesseRoot/files
 FitNesseRoot/ErrorLogs
 nbproject
