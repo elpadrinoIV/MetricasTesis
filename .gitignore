@@ -4,5 +4,6 @@
 *.synctex.gz
 FitNesseRoot/files
 FitNesseRoot/ErrorLogs
+FitNesseRoot/RecentChanges
 nbproject
 doc
