@@ -1,0 +1,129 @@
+Quiero buscar todos los commits entre 2 tags.
+
+|Comment|
+|tag0 -> tag1| C2, C3, C4|
+|tag0 -> tag2| C2, C5, C6|
+|tag0 -> tag3| C2, C3, C4, C7, C8|
+|tag0 -> tag4| C2, C3, C4, C5, C6, C9|
+|tag0 -> tag5| C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12|
+|tag0 -> tag6| C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13|
+|tag1 -> tag3| C7, C8|
+|tag1 -> tag4| C5, C6, C9|
+|tag1 -> tag5| C5, C6, C7, C8, C9, C10, C11, C12|
+|tag2 -> tag5| C3, C4, C7, C8, C9, C10, C11, C12|
+|tag3 -> tag5| C5, C6, C9, C10, C11, C12|
+
+!define C2 {bb67984861cd395015283c3b3760bb990075ff0c}
+!define C3 {21e654883a84fb2c7c1ee6b8d13a4780e67fef35}
+!define C4 {4a30b7346ea4ccfec68ccaafcc652e2c905a5d3b}
+!define C5 {0f5cc8f4f439dd661ee71050dfe78ca28e08d670}
+!define C6 {fd027a87f1ff9174988a276c63118834efaae018}
+!define C7 {1625d51ab292b4d0341c0a439863a073fba4ba12}
+!define C8 {420f2b6f5219ef55c2db7fa51c3b46784bea52d2}
+!define C9 {6a9b728f6220508507d6bda1d69c84b6e4a5dcb5}
+!define C10 {2d53e0a42aca39fd6bc42ff1170df01abf16a2fe}
+!define C11 {700d1bcfbff692bde709835f0cb13f344de6c59d}
+!define C12 {5fa7fe3df70327794342d62c5c4452dff5f3aea6}
+!define C13 {ce6194689aaab3a6b217537cca0ba93c2e0f457a}
+
+
+!3 Pruebas
+|Ordered Query: Commits Entre Tags|tag0|tag1|
+|commit_hash|
+|${C2}|
+|${C3}|
+|${C4}|
+
+|Ordered Query: Commits Entre Tags|tag0|tag2|
+|commit_hash|
+|${C2}|
+|${C5}|
+|${C6}|
+
+|Ordered Query: Commits Entre Tags|tag0|tag3|
+|commit_hash|
+|${C2}|
+|${C3}|
+|${C4}|
+|${C7}|
+|${C8}|
+
+|Ordered Query: Commits Entre Tags|tag0|tag4|
+|commit_hash|
+|${C2}|
+|${C3}|
+|${C4}|
+|${C5}|
+|${C6}|
+|${C9}|
+
+|Ordered Query: Commits Entre Tags|tag0|tag5|
+|commit_hash|
+|${C2}|
+|${C3}|
+|${C4}|
+|${C5}|
+|${C6}|
+|${C7}|
+|${C8}|
+|${C9}|
+|${C10}|
+|${C11}|
+|${C12}|
+
+|Ordered Query: Commits Entre Tags|tag0|tag6|
+|commit_hash|
+|${C2}|
+|${C3}|
+|${C4}|
+|${C5}|
+|${C6}|
+|${C7}|
+|${C8}|
+|${C9}|
+|${C10}|
+|${C11}|
+|${C12}|
+|${C13}|
+
+|Ordered Query: Commits Entre Tags|tag1|tag3|
+|commit_hash|
+|${C7}|
+|${C8}|
+
+|Ordered Query: Commits Entre Tags|tag1|tag4|
+|commit_hash|
+|${C5}|
+|${C6}|
+|${C9}|
+
+|Ordered Query: Commits Entre Tags|tag1|tag5|
+|commit_hash|
+|${C5}|
+|${C6}|
+|${C7}|
+|${C8}|
+|${C9}|
+|${C10}|
+|${C11}|
+|${C12}|
+
+|Ordered Query: Commits Entre Tags|tag2|tag5|
+|commit_hash|
+|${C3}|
+|${C4}|
+|${C7}|
+|${C8}|
+|${C9}|
+|${C10}|
+|${C11}|
+|${C12}|
+
+|Ordered Query: Commits Entre Tags|tag3|tag5|
+|commit_hash|
+|${C5}|
+|${C6}|
+|${C9}|
+|${C10}|
+|${C11}|
+|${C12}|

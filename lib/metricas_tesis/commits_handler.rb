@@ -65,6 +65,64 @@ module MetricasTesis
     end
 
     ##
+    # Devuelve una lista con todos los commits que se encuentran
+    # entre 2 tags.
+    # Params:
+    # +tag_desde+:: nombre tag
+    # +tag_hasta+:: nombre tag
+    # +filtro+:: REGEX a buscar en el mensaje del commit.
+    #
+    # Lanza la excepción ArgumentError si:
+    # - No existe alguno de los commits
+    # - +tag_desde+ ocurre luego de +tag_hasta+
+    def commits_entre_tags (tag_desde, tag_hasta, filtro="")
+      if !existe_commit? tag_desde
+        raise ArgumentError, 'tag_desde no existe'
+      end
+
+      if !existe_commit? tag_hasta
+        raise ArgumentError, 'tag_hasta no existe'
+      end
+
+      commits = `git --git-dir='#{@path_to_repo}' log --pretty=format:"%H" --reverse #{tag_desde..tag_hasta}`.split
+
+      commits_reales = Array.new
+=begin
+      ya_encontre_commit_desde = false
+      ya_encontre_commit_hasta = false
+
+      commits.each do |commit|
+        if commit == commit_desde
+          ya_encontre_commit_desde = true
+        end
+
+        if ya_encontre_commit_desde && !ya_encontre_commit_hasta
+          commits_reales << commit
+        end
+
+        if commit == commit_hasta
+          ya_encontre_commit_hasta = true
+        end
+      end
+
+      if ya_encontre_commit_desde && ya_encontre_commit_hasta
+        commits = commits_reales
+      else
+        commits = Array.new
+      end
+
+      if (commits.empty?)
+        raise ArgumentError, 'no se puede llegar de commit_desde a commit_hasta'
+      end
+=end
+      if !filtro.empty?
+        commits = self.filtrar_commits(commits, filtro)
+      end
+
+      commits
+    end
+
+    ##
     # Indica si un hash corresponde a un commit del proyecto
     # Params:
     # +commit_hash+:: hash
