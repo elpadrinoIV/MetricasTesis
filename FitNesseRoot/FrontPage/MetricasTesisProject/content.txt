@@ -6,8 +6,11 @@ Proyecto de métricas que voy a usar para mi tesis de grado.
 !define COMMAND_PATTERN {ruby -I %p %m}
 !path lib/fixtures
 !path lib/fixtures/utilitarios
+!path lib/fixtures/scripts
 !path lib/metricas_tesis
+!path lib/scripts
 
 >SetUp
 >ContadorCommitsSuite
 >ActividadArchivosSuite
+>ScriptsSuite

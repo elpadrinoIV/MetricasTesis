@@ -18,6 +18,18 @@ module Fixtures
 
         fila
       end
+
+      def self.convertir_a_query_row_desde_hash hash
+        fila = Array.new
+        hash.keys.each do |key|
+          campo = Array.new
+          campo << key.to_s
+          campo << hash[key]
+          fila << campo
+        end
+
+        fila
+      end
     end
   end
 end

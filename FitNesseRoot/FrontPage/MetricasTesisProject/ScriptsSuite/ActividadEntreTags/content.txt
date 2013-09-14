@@ -1,0 +1,31 @@
+Quiero ver tod la actividad entre 2 tags, esto quiere decir, para cada commit quiero saber la cantidad de archivos agregados, modificados o eliminados de:
+ * AT
+ * UT
+ * Código
+ * Otro
+
+
+!define C1 {04b0f1b268b500d20a3429fa95e79ea4b6f46652}
+!define C2 {d552463abe31d46f7909cdecc5961f7cdd43b5c9}
+!define C3 {d1aae76c247fd965dceb444a4383b185ad733f2e}
+!define C4 {e2878a2fdfd4d54eafd4cd773c49efe7d5248b06}
+!define C5 {8b1455450a463c760628bddd0b9fd74f38492885}
+!define C6 {2b0b1a32e99a33e4f5ad4a96e7e8dea8da0c591e}
+!define C7 {453096c4d25d4a699eeb7890bc35bdf0a37fd973}
+!define C8 {071ae0d0d2baacb9f9ebbb4269f0b970271a7925}
+
+
+|import|
+|Fixtures::Scripts|
+
+!3 Pruebas
+|Ordered Query: Contar Actividad Entre Tags|tag0_para_script|tag1_para_script|
+|commit_hash|acceptance_tests_agregados|acceptance_tests_modificados|acceptance_tests_eliminados|unit_tests_agregados|unit_tests_modificados|unit_tests_eliminados|codigo_agregados|codigo_modificados|codigo_eliminados|otro_agregados|otro_modificados|otro_eliminados|
+|${C1}      |    0                     |     0                      |    0                      |    0               |   0                  |    0                |     0          |      0           |          0      |      0       |     1          |    0          |  
+|${C2}      |    0                     |     2                      |    0                      |    0               |   0                  |    0                |     0          |      0           |          0      |      0       |     6          |    0          |
+|${C3}      |    0                     |     1                      |    0                      |    0               |   0                  |    0                |     0          |      0           |          0      |      0       |     2          |    0          |
+|${C4}      |    0                     |     0                      |    0                      |    2               |   0                  |    0                |     1          |      0           |          0      |      1       |     2          |    0          |
+|${C5}      |    0                     |     0                      |    0                      |    0               |   1                  |    0                |     0          |      1           |          0      |      0       |     0          |    0          |
+|${C6}      |    0                     |     3                      |    0                      |    0               |   2                  |    0                |     1          |      1           |          0      |      0       |     2          |    0          |
+|${C7}      |    0                     |     1                      |    0                      |    0               |   0                  |    0                |     0          |      0           |          0      |      0       |     4          |    0          |  
+|${C8}      |    1                     |     1                      |    0                      |    0               |   0                  |    0                |     0          |      0           |          0      |      0       |     2          |    0          |  
