@@ -1,7 +1,7 @@
 require 'test/unit'
 
 require 'ant_pattern_filter'
-class AntPatternFilterTest < Test::Unit::TestCase
+class AntPatternFilterPatronTest < Test::Unit::TestCase
   def setup
     @ant_pattern_filter = MetricasTesis::AntPatternFilter.new
   end
