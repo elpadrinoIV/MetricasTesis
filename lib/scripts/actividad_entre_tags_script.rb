@@ -1,17 +1,30 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+require 'dir_loader'
+require 'array_to_table'
+require 'fitnesse_file_patterns'
 
+require 'ant_pattern_filter'
 require 'commits_handler'
 require 'archivos_commits_handler'
+require 'tags_handler'
+
+
 module MetricasTesis
   module Scripts
     class ActividadEntreTagsScript
-      attr_accessor :pattern_acceptance_tests, :pattern_unit_tests, :pattern_codigo
+      attr_accessor :pattern_acceptance_tests, :pattern_unit_tests, :pattern_codigo,
+                    :lista_tags
 
       def initialize path_repos
         @path_repos = path_repos
         @commits_handler = MetricasTesis::CommitsHandler.new path_repos
         @archivos_commits_handler = MetricasTesis::ArchivosCommitsHandler.new path_repos
+        
+        path = File.dirname(__FILE__) + '/directorios'
+        
+        @dir_loader = Scripts::DirLoader.new
+        @dir_loader.cargar_datos_de_archivo(path)
+
+        @lista_tags = Array.new
       end
 
       def get_actividad_entre_tags tag_desde, tag_hasta
@@ -57,6 +70,18 @@ module MetricasTesis
         resultado
       end
 
+      def run
+        if @lista_tags.size < 2
+          tags_handler = MetricasTesis::TagsHandler.new @path_repos
+          @lista_tags = tags_handler.get_tags
+        end
+        # actividad = script.get_actividad_entre_tags tag_desde, tag_hasta
+
+# tabla = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir actividad
+
+# MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla_csv(tabla, 'salida.csv')
+      end
+
       private
       ##
       # +tipo+:: +acceptance_tests+, +:unit_tests+, +:codigo+
@@ -82,3 +107,12 @@ module MetricasTesis
     end
   end
 end
+
+git_dir_fitnesse = File.dirname(__FILE__) + '/../../../fitnesse/.git'
+script = MetricasTesis::Scripts::ActividadEntreTagsScript.new git_dir_fitnesse
+
+script.pattern_acceptance_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_aceptacion
+script.pattern_unit_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_unitarias
+script.pattern_codigo = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_codigo
+
+script.run

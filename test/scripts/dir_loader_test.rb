@@ -3,7 +3,7 @@ require 'test/unit'
 require 'dir_loader'
 class DirLoaderTest < Test::Unit::TestCase
   def setup
-    @dir_loader = Scripts::DirLoader.new
+    @dir_loader = MetricasTesis::Scripts::DirLoader.new
   end
 
   def test_cargar_datos_desde_archivo
@@ -23,6 +23,7 @@ class DirLoaderTest < Test::Unit::TestCase
 
   def test_cargar_pedir_directorio_que_no_existe
     path = File.dirname(__FILE__) + '/../../lib/scripts/directorios'
+    
     @dir_loader.cargar_datos_de_archivo(path)
 
     assert_raise(ArgumentError) do
