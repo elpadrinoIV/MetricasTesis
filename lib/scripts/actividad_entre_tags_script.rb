@@ -71,7 +71,7 @@ module MetricasTesis
       end
 
       def run
-        if @lista_tags.size < 2
+        if @lista_tags.empty
           tags_handler = MetricasTesis::TagsHandler.new @path_repos
           @lista_tags = tags_handler.get_tags
         end
