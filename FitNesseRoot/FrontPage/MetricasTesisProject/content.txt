@@ -9,6 +9,7 @@ Proyecto de métricas que voy a usar para mi tesis de grado.
 !path lib/fixtures/scripts
 !path lib/metricas_tesis
 !path lib/scripts
+!path lib/scripts/utilitarios
 
 >SetUp
 >ContadorCommitsSuite
