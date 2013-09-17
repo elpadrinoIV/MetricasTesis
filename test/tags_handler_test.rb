@@ -30,7 +30,7 @@ class TagsHandlerTest < Test::Unit::TestCase
     assert_equal(resultado_esperado, tags)
 
   end
-
+=begin
   def test_obtener_tags_entre_fechas
     # 2013-09-05 23:58:37 -0300 tag1_para_script
     # 2013-09-13 00:33:53 -0300 tag0
@@ -46,4 +46,5 @@ class TagsHandlerTest < Test::Unit::TestCase
     assert_equal(resultado_esperado, tags)
 
   end
+=end
 end
