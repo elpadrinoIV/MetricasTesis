@@ -10,9 +10,9 @@ class DirLoaderTest < Test::Unit::TestCase
     path = File.dirname(__FILE__) + '/../../lib/scripts/directorios'
     @dir_loader.cargar_datos_de_archivo(path)
 
-    assert_equal('../../Resultados', @dir_loader.get_directorio('RESULTADOS'))
-    assert_equal('../../Resultados/Data', @dir_loader.get_directorio('DATA'))
-    assert_equal('../../Resultados/Imagenes', @dir_loader.get_directorio('IMAGENES'))
+    assert_equal('./Resultados/', @dir_loader.get_directorio('RESULTADOS'))
+    assert_equal('./Resultados/Data/', @dir_loader.get_directorio('DATA'))
+    assert_equal('./Resultados/Imagenes/', @dir_loader.get_directorio('IMAGENES'))
   end
 
   def test_cargar_datos_archivo_inexistente
