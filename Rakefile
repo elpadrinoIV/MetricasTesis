@@ -29,7 +29,7 @@ task :run_scripts, :script do |t, args|
 	scripts_dir = "./lib/scripts/"
 	libs = ["lib/scripts", "lib/scripts/utilitarios", "lib/metricas_tesis"]
 
-	scripts =  Dir.glob("#{scripts_dir}*script.rb").class
+	scripts =  Dir.glob("#{scripts_dir}*script.rb")
 
 	if args[:script]
 		scripts = [args[:script] ]
@@ -37,8 +37,9 @@ task :run_scripts, :script do |t, args|
 
 	load_path = ""
 	libs.each { |lib| load_path += "-I\"#{lib}\" " }
+	puts scripts
 
-	scripts.each { |script| ruby "#{load_path} #{scripts_dir + script + ".rb"}" }
+	scripts.each { |script| ruby "#{load_path} #{script}" }
 	# ruby '-I"lib/scripts" -I"lib/scripts/utilitarios" -I"lib/metricas_tesis" ./lib/scripts/actividad_entre_tags_script.rb'
 end
 
