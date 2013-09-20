@@ -19,7 +19,7 @@ end
 
 Rake::TestTask.new("test:all") do |t|
   t.test_files = FileList['test/scripts/*_test.rb', 'test/*_test.rb']
-  t.libs = ["lib/metricas_tesis", "lib/scripts"]
+  t.libs = ["lib/metricas_tesis", "lib/scripts", "lib/scripts/utilitarios"]
   t.verbose = true
   t.warning = true
 end
