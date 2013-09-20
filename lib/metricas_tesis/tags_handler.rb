@@ -8,10 +8,8 @@ module MetricasTesis
     # Devuelve una lista con todos los tags
     def get_tags fecha_desde=nil, fecha_hasta=nil
 
-      puts "ANTES DE GIT"
       # tags= `git --git-dir='#{@path_to_repo}' tag`.split
       tags_con_fechas = `git --git-dir='#{@path_to_repo}' tag | xargs -I@ git --git-dir='#{@path_to_repo}' log --format=format:"%ai @%n" -1 @ | sort`.split("\n")
-      puts "DPS DE GIT"
 
       # lo convierto a hash del estilo: tag => fecha
       temp_array = Array.new

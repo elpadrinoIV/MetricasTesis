@@ -87,34 +87,7 @@ module MetricasTesis
       commits = `git --git-dir='#{@path_to_repo}' log --pretty=format:"%H" --reverse #{tag_desde..tag_hasta}`.split
 
       commits_reales = Array.new
-=begin
-      ya_encontre_commit_desde = false
-      ya_encontre_commit_hasta = false
 
-      commits.each do |commit|
-        if commit == commit_desde
-          ya_encontre_commit_desde = true
-        end
-
-        if ya_encontre_commit_desde && !ya_encontre_commit_hasta
-          commits_reales << commit
-        end
-
-        if commit == commit_hasta
-          ya_encontre_commit_hasta = true
-        end
-      end
-
-      if ya_encontre_commit_desde && ya_encontre_commit_hasta
-        commits = commits_reales
-      else
-        commits = Array.new
-      end
-
-      if (commits.empty?)
-        raise ArgumentError, 'no se puede llegar de commit_desde a commit_hasta'
-      end
-=end
       if !filtro.empty?
         commits = self.filtrar_commits(commits, filtro)
       end
@@ -143,6 +116,28 @@ module MetricasTesis
       end
 
       commits_filtrados
+    end
+
+    def fecha_commit commit_hash, formato_fecha
+      if !existe_commit?(commit_hash)
+        raise ArgumentError, 'no existe commit #{commit_hash}'
+      end
+
+      if (:iso != formato_fecha && :timestamp != formato_fecha)
+        raise ArgumentError, 'los formatos de fecha solo pueden ser ":iso" o ":timestamp"'
+      end
+
+      opcion_formato_fecha = ""
+      case formato_fecha
+      when :iso
+        opcion_formato_fecha = '%ci'
+      when :timestamp
+        opcion_formato_fecha = '%ct'
+      end
+
+      fecha = `git --git-dir='#{@path_to_repo}' show -s --format="#{opcion_formato_fecha}" #{commit_hash} 2>&1`
+      fecha.chomp!.chomp!
+      fecha
     end
   end
 end
