@@ -28,8 +28,11 @@ module MetricasTesis
 
         def self.get_patron_codigo
           patron= MetricasTesis::AntPatternFilter.new
-          patron.set_fileset('src/fitnesse')
-          patron.add_include('**/*.java')
+          patron.set_fileset('src/')
+          patron.add_include('fit/**/*.java')
+          patron.add_include('fitnesse/**/*.java')
+          patron.add_include('fitnesseMain/**/*.java')
+          patron.add_include('util/**/*.java')
           patron.add_exclude('**/*Test.java')
           patron.add_exclude('**/fixtures/**')
           patron

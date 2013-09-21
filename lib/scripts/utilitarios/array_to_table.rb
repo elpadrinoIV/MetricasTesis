@@ -48,11 +48,11 @@ module MetricasTesis
           tabla
         end
 
-        def self.guardar_tabla_csv tabla, path_archivo
+        def self.guardar_tabla tabla, path_archivo, separador
           file = File.open(path_archivo, 'w')
           tabla.each do |fila|
-            fila_cvs = fila.join(',')
-            file.puts fila_cvs
+            fila_archivo = fila.join(separador)
+            file.puts fila_archivo
           end
 
           file.close          

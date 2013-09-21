@@ -36,9 +36,9 @@ module MetricasTesis
           fecha_iso = @commits_handler.fecha_commit(commit, :iso)
           fecha_timestamp = @commits_handler.fecha_commit(commit, :timestamp)
           
-          archivos_agregados = @archivos_commits_handler.get_archivos(commit, commit, ['A']).values.flatten
-          archivos_modificados = @archivos_commits_handler.get_archivos(commit, commit, ['M']).values.flatten
-          archivos_eliminados = @archivos_commits_handler.get_archivos(commit, commit, ['D']).values.flatten
+          archivos_agregados = @archivos_commits_handler.get_archivos_de_lista([commit], ['A']).values.flatten
+          archivos_modificados = @archivos_commits_handler.get_archivos_de_lista([commit], ['M']).values.flatten
+          archivos_eliminados = @archivos_commits_handler.get_archivos_de_lista([commit], ['D']).values.flatten
           
           actividad_at = get_actividad_particular :acceptance_tests, archivos_agregados, archivos_modificados, archivos_eliminados
           actividad_ut = get_actividad_particular :unit_tests, archivos_agregados, archivos_modificados, archivos_eliminados
@@ -62,7 +62,7 @@ module MetricasTesis
           fila = Hash.new
           fila[:commit_hash] = commit
           
-          fila[:fecha_iso] = fecha_iso
+          fila[:fecha_iso] = "\"#{fecha_iso}\""
           fila[:fecha_timestamp] = fecha_timestamp
           
           fila.merge!(actividad_at)
@@ -107,19 +107,21 @@ module MetricasTesis
           puts "TAG_DESDE: #{tag_desde}  - TAG_HASTA: #{tag} "
           actividad = get_actividad_entre_tags(tag_desde, tag)
           resumen_actividad = get_resumen_actividad(actividad, columnas)
+          resumen_actividad[:tag] = "\"#{tag}\""
           resumen_actividad_por_tag << resumen_actividad
 
           tabla = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir actividad
           dir_salida = @dir_loader.get_directorio("DATA")
           archivo_salida = dir_salida + "actividad_#{tag_desde}_to_#{tag}.csv"
-          MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla_csv(tabla, archivo_salida)
+          MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla(tabla, archivo_salida, "\t")
           tag_desde = tag
         end
 
         tabla_resumen = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir resumen_actividad_por_tag
+
         dir_salida = @dir_loader.get_directorio("DATA")
         archivo_salida = dir_salida + "resumen_actividad.csv"
-        MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla_csv(tabla_resumen, archivo_salida)
+        MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla(tabla_resumen, archivo_salida, "\t")
       end
 
       ##
