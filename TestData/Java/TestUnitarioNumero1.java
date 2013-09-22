@@ -5,16 +5,17 @@ import org.junit.Test;
 public class TestUnitarioNumero1{
     @Test
     public void testSimple(){
+        // Comentario de una linea
         int a = 1;
         assertEquals(a, 1);
     }
 
     @Test
     public void testSimple2(){
-        int a = 2;
+        int a = 2; // Comentario de una linea al final
         assertEquals(a, 2);
     }
-    
+// Comentario al principio
     @Test
     public void testSimple3(){
         int b = 3;
