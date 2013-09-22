@@ -199,13 +199,16 @@ module MetricasTesis
   end
 end
 
-git_dir_fitnesse = File.dirname(__FILE__) + '/../../../fitnesse/.git'
+if "RUN_SCRIPT" == ARGV[0]
+  
+  git_dir_fitnesse = File.dirname(__FILE__) + '/../../../fitnesse/.git'
 
-script = MetricasTesis::Scripts::ActividadEntreTagsScript.new git_dir_fitnesse
+        script = MetricasTesis::Scripts::ActividadEntreTagsScript.new git_dir_fitnesse
 
-script.pattern_acceptance_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_aceptacion
-script.pattern_unit_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_unitarias
-script.pattern_codigo = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_codigo
+        script.pattern_acceptance_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_aceptacion
+        script.pattern_unit_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_unitarias
+        script.pattern_codigo = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_codigo
 
-script.lista_excluded_tags = ["list", "nonewtmpl"]
-script.run
+        script.lista_excluded_tags = ["list", "nonewtmpl"]
+        script.run
+end

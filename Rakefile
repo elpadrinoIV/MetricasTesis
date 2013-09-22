@@ -39,7 +39,10 @@ task :run_scripts, :script do |t, args|
 	libs.each { |lib| load_path += "-I\"#{lib}\" " }
 	puts scripts
 
-	scripts.each { |script| ruby "#{load_path} #{script}" }
+	scripts.each do |script|
+		puts "SCRIPT: #{script}"
+		ruby "#{load_path} #{script} RUN_SCRIPT" 
+	end
 	# ruby '-I"lib/scripts" -I"lib/scripts/utilitarios" -I"lib/metricas_tesis" ./lib/scripts/actividad_entre_tags_script.rb'
 end
 
