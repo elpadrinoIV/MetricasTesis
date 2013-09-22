@@ -13,7 +13,6 @@ public class TestUnitarioNumero1{
     @Test
     public void testSimple2(){
         int c = 4;
-        int d = 5;
         String cadena = "prueba cadena";
         assertEquals(c, 2);
     }
@@ -23,7 +22,6 @@ public class TestUnitarioNumero1{
         int b = 3;
         String cadena4 = "modifico prueba cadena";
         String cadena5 = "modifico prueba cadena";
-        String cadena6 = "modifico prueba cadena";
         assertEquals(b, 3);
     }
 
