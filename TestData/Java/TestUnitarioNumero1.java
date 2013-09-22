@@ -5,25 +5,25 @@ import org.junit.Test;
 public class TestUnitarioNumero1{
     @Test
     public void testSimple(){
-        int a = 1;
-        String cadena = "prueba cadena";
+        double a = 1;
+        String cadena = "modifico prueba cadena";
         assertEquals(a, 1);
     }
 
     @Test
     public void testSimple2(){
-        int a = 2;
-        int b = 3;
+        int c = 4;
+        int d = 5;
         String cadena = "prueba cadena";
-        assertEquals(a, 2);
+        assertEquals(c, 2);
     }
 
     @Test
     public void testSimple3(){
         int b = 3;
-        String cadena1 = "prueba cadena";
-        String cadena2 = "prueba cadena";
-        String cadena3 = "prueba cadena";
+        String cadena4 = "modifico prueba cadena";
+        String cadena5 = "modifico prueba cadena";
+        String cadena6 = "modifico prueba cadena";
         assertEquals(b, 3);
     }
 
