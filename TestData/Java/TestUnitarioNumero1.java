@@ -33,12 +33,6 @@ public class TestUnitarioNumero1{
     }
 
     @Test
-    public void testSimple5(){
-        int a = 1;
-        assertEquals(a, 1); 
-    }
-
-    @Test
     public void testSimple6(){
         int a = 1;
         assertEquals(a, 1);
