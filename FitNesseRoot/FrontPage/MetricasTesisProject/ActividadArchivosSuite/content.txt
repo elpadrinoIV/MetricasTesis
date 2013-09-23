@@ -6,3 +6,5 @@ Suite para archivos modificados.
 >ContarArchivosAgregadosEntreCommits
 
 >ContarActividadTestsUnitarios
+
+>ContarModificacionesNoTrivialesEnCommit

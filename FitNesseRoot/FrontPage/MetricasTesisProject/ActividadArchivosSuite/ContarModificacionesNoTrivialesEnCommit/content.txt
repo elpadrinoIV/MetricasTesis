@@ -1,0 +1,38 @@
+Me interesa contar cuando se cambia algo que no sean espacios o comentarios.
+
+No me interesa:
+ * Cambios de identación
+ * Cambiar tabs por espacios o viceversa
+ * Cambiar line-endigs (DOS/Unix line endings)
+ * Agregar, quitar líneas en blanco o líneas que tienen solo espacios
+ * Agregar comentarios cortos o largos tanto en una línea nueva como al final o principio de una línea.
+
+Me interesa:
+ * Cambios que no entran en las categorias mencionadas
+ * Comentarios que comentan código (código que existía es comentado)
+ * Quitar comentarios que comentaban código (código que existía comentado es descomentado)
+
+!3 Pruebas
+
+|Contar Modificaciones No Triviales En Commit|
+|commit_hash                             |lineas_modificadas?|lineas_agregadas?|lineas_eliminadas?|
+|8ff6591e0e22d058e40781a933a84e0d70c4d4d4|   0               | 0               | 0                |
+|235f30edecee9fc41bc8817b34c3fe56900e5108|   0               | 0               | 0                |
+|7aa6dffa50f5dd4b3feefc3e8f4ca9b0b33d2581|   0               | 0               | 0                |
+|da33a53ad23d294cb1e4494e7f69f22a5e4fafda|   0               | 0               | 0                |
+|4101d499febf8a4dbf1959dacca37d03751c521f|   0               | 0               | 0                |
+|e2cf492eee985bae584e7a6134b7367f505f759f|   0               | 0               | 0                |
+|a53ffda29c581af0373cfb2ab9698bb6cbeabd1b|   0               | 0               | 0                |
+|629b32260836547bdddd4b42b738b7434b8476ed|   0               | 0               | 0                |
+|292ce1e53ebb02edbac4de0923f397ced2d03406|   0               | 0               | 0                |
+|bbcf6d9ba75a77dc3cdbf7f610c37f576cfbb4d1|   0               | 0               | 0                |
+|8a8b5979653312731012b6243887ade3ab60f345|   0               | 0               | 0                |
+|d3f4b08cd8e9970429632ea619330b970175f7a4|   0               | 0               | 0                |
+|492df8bfd08bc2ff7ee316febf0c0995276fb8f5|   0               | 6               | 0                |
+|fbe7863f21ab695f2bf68f12e20411b9301d7819|   8               | 0               | 0                |
+|805b519ac41aadf45f4f208f3b983678af005039|   0               | 0               | 2                |
+|0528f1706ab912efbbc42571b421af3109bd55a1|   0               | 5               | 0                |
+|1c4b047a6d9dd9e0c1b21b7feb48bbc620e80762|   0               | 0               | 5                |
+|f662f40d4f1affa975c5a1947ba9f48f030c41ad|   4               | 0               | 0                |
+|3f38078dee373e9c77d0bd437762be743eade7ee|   4               | 0               | 0                |
+
