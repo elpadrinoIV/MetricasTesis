@@ -15,6 +15,30 @@ Me interesa:
 !3 Pruebas
 
 |Contar Modificaciones No Triviales En Commit|
+|commit_hash                             |archivos_modificados?|
+|8ff6591e0e22d058e40781a933a84e0d70c4d4d4|   false             |
+|235f30edecee9fc41bc8817b34c3fe56900e5108|   false             |
+|7aa6dffa50f5dd4b3feefc3e8f4ca9b0b33d2581|   false             |
+|da33a53ad23d294cb1e4494e7f69f22a5e4fafda|   false             |
+|4101d499febf8a4dbf1959dacca37d03751c521f|   false             |
+|e2cf492eee985bae584e7a6134b7367f505f759f|   false             |
+|a53ffda29c581af0373cfb2ab9698bb6cbeabd1b|   false             |
+|629b32260836547bdddd4b42b738b7434b8476ed|   false             |
+|292ce1e53ebb02edbac4de0923f397ced2d03406|   false             |
+|bbcf6d9ba75a77dc3cdbf7f610c37f576cfbb4d1|   false             |
+|8a8b5979653312731012b6243887ade3ab60f345|   false             |
+|d3f4b08cd8e9970429632ea619330b970175f7a4|   false             |
+|492df8bfd08bc2ff7ee316febf0c0995276fb8f5|   true              |
+|fbe7863f21ab695f2bf68f12e20411b9301d7819|   true              |
+|805b519ac41aadf45f4f208f3b983678af005039|   true              |
+|0528f1706ab912efbbc42571b421af3109bd55a1|   true              |
+|1c4b047a6d9dd9e0c1b21b7feb48bbc620e80762|   true              |
+|f662f40d4f1affa975c5a1947ba9f48f030c41ad|   true              |
+|3f38078dee373e9c77d0bd437762be743eade7ee|   true              |
+
+
+|Comment|
+|Contar Modificaciones No Triviales En Commit|
 |commit_hash                             |lineas_modificadas?|lineas_agregadas?|lineas_eliminadas?|
 |8ff6591e0e22d058e40781a933a84e0d70c4d4d4|   0               | 0               | 0                |
 |235f30edecee9fc41bc8817b34c3fe56900e5108|   0               | 0               | 0                |
@@ -35,4 +59,3 @@ Me interesa:
 |1c4b047a6d9dd9e0c1b21b7feb48bbc620e80762|   0               | 0               | 5                |
 |f662f40d4f1affa975c5a1947ba9f48f030c41ad|   4               | 0               | 0                |
 |3f38078dee373e9c77d0bd437762be743eade7ee|   4               | 0               | 0                |
-
