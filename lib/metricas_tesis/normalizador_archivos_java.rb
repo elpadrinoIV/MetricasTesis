@@ -3,6 +3,13 @@ module MetricasTesis
     def initialize      
     end
 
+    def normalizar lineas
+      lineas_normalizadas = quitar_lineas_vacias(lineas)
+      lineas_normalizadas = quitar_comentarios_cortos(lineas_normalizadas)
+      lineas_normalizadas = quitar_comentarios_largos(lineas_normalizadas)
+      lineas_normalizadas
+    end
+
     ##
     # Quita todas las lineas vacías. Por vacío se entiende a una línea
     # que no tiene nada o solo tiene espacios (tabs, \r, etc)
