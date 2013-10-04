@@ -1,8 +1,8 @@
-require 'analizador_modificaciones_java'
+require 'analizador_modificaciones'
 module Fixtures
   class ContarModificacionesNoTrivialesEnCommit
     def initialize
-      @analizador = MetricasTesis::AnalizadorModificacionesJava.new('./.git')
+      @analizador = MetricasTesis::AnalizadorModificaciones.new('./.git')
     end
 
     def set_commit_hash commit_hash

@@ -1,10 +1,10 @@
 require 'test/unit'
 
-require 'analizador_modificaciones_java'
+require 'analizador_modificaciones'
 class DeteccionModificacionesNoTrivialesTest < Test::Unit::TestCase
   def setup
     path_repos = './.git'
-    @analizador = MetricasTesis::AnalizadorModificacionesJava.new(path_repos)
+    @analizador = MetricasTesis::AnalizadorModificaciones.new(path_repos)
     @archivo = 'TestData/Java/TestUnitarioNumero1.java'
   end
 =begin
