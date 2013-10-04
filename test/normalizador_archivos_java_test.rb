@@ -117,4 +117,41 @@ class NormalizadorArchivosJavaTest < Test::Unit::TestCase
     resultado = @normalizador.quitar_comentarios_largos(archivo)
     assert_equal(resultado_esperado, resultado)
   end
+
+  def test_normalizar_archivo_problematico_fitnesse
+    archivo = Array.new
+    archivo << '/** this class is adapted from the trinidad project (http://fitnesse.info/trinidad) */'
+    archivo << 'package fitnesse.trinidad.examples;'
+    archivo << ''
+    archivo << 'import org.junit.runner.RunWith;'
+    archivo << ''
+    archivo << 'import fitnesse.trinidad.*;'
+    archivo << 'import fitnesse.trinidad.FitnesseSuite.*;'
+    archivo << ''
+    archivo << '@RunWith(FitnesseSuite.class)'
+    archivo << '@Name("FitNesse.SuiteAcceptanceTests.SuiteFixtureTests")'
+    archivo << '@FitnesseDir(".")'
+    archivo << '// @TestEngine(FitTestEngine.class) //this is optional since it\'s the default'
+    archivo << '// @OutputDir("/tmp/fitnesse") //Specify an absolute or relative path'
+    archivo << '@OutputDir(systemProperty = "java.io.tmpdir", pathExtension = "fitnesse")'
+    archivo << 'public class JUnitExampleFitnesseSuiteTest {'
+    archivo << ''
+    archivo << '}'
+
+    resultado_esperado = Array.new
+    resultado_esperado << 'package fitnesse.trinidad.examples;'
+    resultado_esperado << 'import org.junit.runner.RunWith;'
+    resultado_esperado << 'import fitnesse.trinidad.*;'
+    resultado_esperado << 'import fitnesse.trinidad.FitnesseSuite.*;'
+    resultado_esperado << '@RunWith(FitnesseSuite.class)'
+    resultado_esperado << '@Name("FitNesse.SuiteAcceptanceTests.SuiteFixtureTests")'
+    resultado_esperado << '@FitnesseDir(".")'
+    resultado_esperado << '@OutputDir(systemProperty = "java.io.tmpdir", pathExtension = "fitnesse")'
+    resultado_esperado << 'public class JUnitExampleFitnesseSuiteTest {'
+    resultado_esperado << '}'
+
+
+    resultado = @normalizador.normalizar(archivo)
+    assert_equal(resultado_esperado, resultado)
+  end
 end

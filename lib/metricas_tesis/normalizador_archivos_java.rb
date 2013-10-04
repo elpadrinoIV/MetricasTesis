@@ -5,8 +5,8 @@ module MetricasTesis
 
     def normalizar lineas
       lineas_normalizadas = quitar_lineas_vacias(lineas)
-      lineas_normalizadas = quitar_comentarios_cortos(lineas_normalizadas)
       lineas_normalizadas = quitar_comentarios_largos(lineas_normalizadas)
+      lineas_normalizadas = quitar_comentarios_cortos(lineas_normalizadas)
       lineas_normalizadas
     end
 

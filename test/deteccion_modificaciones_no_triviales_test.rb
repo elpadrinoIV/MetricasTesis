@@ -12,7 +12,7 @@ class DeteccionModificacionesNoTrivialesTest < Test::Unit::TestCase
     # Cambiado line-ending (dos2unix)
     commit_hash = '8ff6591e0e22d058e40781a933a84e0d70c4d4d4'
 
-    cantidad_cambios = @analizador.cambios_no_triviales(@archivo, commit_hash)
+    cantidad_cambios = @analizador.(@archivo, commit_hash)
     assert_equal(0, cantidad_cambios)
   end
 
