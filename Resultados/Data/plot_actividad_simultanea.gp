@@ -1,5 +1,5 @@
 set term png size 1280,640
-set output 'actividad_simultanea.png'
+set output 'actividad_simultanea_cantidad.png'
 
 # set term epslatex color
 # set output 'actividad_simultanea.tex'
@@ -20,7 +20,12 @@ set style fill solid border -2.0
 set xtic rotate by -45 scale 0 font ",8"
 
 
-plot 'actividad_simultanea.csv' using 2:xtic(9) every ::1 ti "Código" ls 1, \
-     'actividad_simultanea.csv' using 5:xtic(9) every ::1 ti "UT + Código" ls 2, \
-     'actividad_simultanea.csv' using 8:xtic(9) every ::1 ti "AT + UT + Código" ls 3
+plot 'actividad_simultanea_cantidad.csv' using 2:xtic(9) every ::1 ti "Código" ls 1, \
+     'actividad_simultanea_cantidad.csv' using 5:xtic(9) every ::1 ti "UT + Código" ls 2, \
+     'actividad_simultanea_cantidad.csv' using 8:xtic(9) every ::1 ti "AT + UT + Código" ls 3
  
+
+set output 'actividad_simultanea_porcentaje.png'
+plot 'actividad_simultanea_porcentaje.csv' using 2:xtic(9) every ::1 ti "Código" ls 1, \
+     'actividad_simultanea_porcentaje.csv' using 5:xtic(9) every ::1 ti "UT + Código" ls 2, \
+     'actividad_simultanea_porcentaje.csv' using 8:xtic(9) every ::1 ti "AT + UT + Código" ls 3
