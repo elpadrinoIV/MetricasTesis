@@ -3,7 +3,7 @@ module Fixtures
   class ContarActividadSimultanea
     def initialize
       @commits = Array.new
-      @script = MetricasTesis::Scripts::ActividadSimultaneaEntreTagsScript.new
+      @script = MetricasTesis::Scripts::ActividadSimultaneaEntreTagsScript.new('')
     end
 
     def agregar_commit at, ut, codigo
