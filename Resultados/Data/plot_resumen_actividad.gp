@@ -20,7 +20,7 @@ set style fill solid border -2.0
 set xtic rotate by -45 scale 0 font ",8"
 
 
-plot 'resumen_actividad.csv' using 2:xtic(13) every ::2 ti "AT modificados" ls 1, \
-     'resumen_actividad.csv' using 5:xtic(13) every ::2 ti "UT modificados" ls 2, \
-     'resumen_actividad.csv' using 8:xtic(13) every ::2 ti "Código modificados" ls 3
+plot 'resumen_actividad.csv' using 2:xtic(13) every ::1 ti "AT modificados" ls 1, \
+     'resumen_actividad.csv' using 5:xtic(13) every ::1 ti "UT modificados" ls 2, \
+     'resumen_actividad.csv' using 8:xtic(13) every ::1 ti "Código modificados" ls 3
  
