@@ -4,7 +4,6 @@ require 'table_to_array'
 
 class TableToArrayTest < Test::Unit::TestCase
   def setup
-    @conversor = MetricasTesis::Scripts::Utilitarios::TableToArray.new
   end
 
   def test_levantar_tabla_memoria
@@ -19,7 +18,7 @@ class TableToArrayTest < Test::Unit::TestCase
     tabla_esperada << {:col1 => "5678", :col2 => "efgh", :col3 => "otra cadena larga"}
     tabla_esperada << {:col1 => "9101", :col2 => "ijkl", :col3 => "bla"}
 
-    tabla_obtenida = @conversor.convertir(tabla, "\t")
+    tabla_obtenida = MetricasTesis::Scripts::Utilitarios::TableToArray.convertir(tabla, "\t")
 
     assert_equal(tabla_esperada, tabla_obtenida)
   end

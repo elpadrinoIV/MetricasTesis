@@ -5,7 +5,7 @@ module MetricasTesis
         def initialize          
         end
 
-        def convertir tabla, separador
+        def self.convertir tabla, separador
           tabla_convertida = Array.new
 
           tengo_encabezado = false
@@ -40,23 +40,21 @@ module MetricasTesis
           
           tabla_convertida
         end
-
-        def convertir_desde_archivo archivo
-
-        end
         
-        private
-        def preprocesar_fila fila
+        # privados
+        def self.preprocesar_fila fila
           fila.gsub!(/^\s*#.*/, '')
           fila.strip!
           fila
         end
 
-        def convertir_a_simbolos lista
+        def self.convertir_a_simbolos lista
           lista_convertida = Array.new
           lista.each { |elemento| lista_convertida << elemento.to_sym }
           lista_convertida
         end
+
+        private_class_method :preprocesar_fila, :convertir_a_simbolos
       end
     end
   end
