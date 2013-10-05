@@ -24,7 +24,26 @@ module MetricasTesis
         @codigo_symbol = :codigo_modificados
       end
 
-      def get_actividad_simultanea_de_commits commits
+      ##
+      # Cuenta en cuantos commits se modificaron solamente:
+      # * código
+      # * UT
+      # * AT
+      # * UT + código
+      # * AT + código
+      # * AT + UT
+      # * AT + UT + código
+      # * ninguno
+      #
+      # Params:
+      # +commits+:: lista que indica para cada commit, cuantos AT, UT y código se modificaron
+      # +formato+:: puede ser:
+      # * +:cantidad+:: da el resultado en cantidad de commits
+      # * +:porcentaje+:: da el resultado en porcentaje
+      #
+      # Devuelve un hash con los valores para cada combinación
+      #
+      def get_actividad_simultanea_de_commits commits, formato
         ninguno = 0
         codigo = 0
         ut = 0
@@ -65,9 +84,24 @@ module MetricasTesis
           end
         end
 
-        resultado = {:ninguno => ninguno, :codigo => codigo, :ut => ut, :at => at,
-          :ut_codigo => ut_codigo, :at_codigo => at_codigo, :at_ut => at_ut,
-          :at_ut_codigo => at_ut_codigo}
+        if (:cantidad == formato)
+          resultado = {:ninguno => ninguno, :codigo => codigo, :ut => ut, :at => at,
+            :ut_codigo => ut_codigo, :at_codigo => at_codigo, :at_ut => at_ut,
+            :at_ut_codigo => at_ut_codigo}
+        elsif (:porcentaje == formato)
+          cantidad_commits = commits.size.to_f
+          resultado = {:ninguno => ninguno/cantidad_commits,
+            :codigo => codigo/cantidad_commits,
+            :ut => ut/cantidad_commits,
+            :at => at/cantidad_commits,
+            :ut_codigo => ut_codigo/cantidad_commits,
+            :at_codigo => at_codigo/cantidad_commits,
+            :at_ut => at_ut/cantidad_commits,
+            :at_ut_codigo => at_ut_codigo/cantidad_commits}
+        else
+          raise ArgumentError, "formato solo puede tomar los valores :cantidad o :porcentaje"
+        end
+        
         resultado
       end
 
@@ -83,7 +117,8 @@ module MetricasTesis
 
         dir_archivos = @dir_loader.get_directorio("DATA")
 
-        actividad_simultanea_entre_tags = Array.new
+        actividad_cantidad_simultanea_entre_tags = Array.new
+        actividad_porcentaje_simultanea_entre_tags = Array.new
 
         tag_desde = @lista_tags.shift
         @lista_tags.each do |tag|
@@ -91,19 +126,27 @@ module MetricasTesis
           archivo = File.readlines(path_archivo)
           commits = MetricasTesis::Scripts::Utilitarios::TableToArray.convertir(archivo, "\t")
 
-          actividad = get_actividad_simultanea_de_commits(commits)
-          actividad[:tag] = tag
+          actividad_cantidad = get_actividad_simultanea_de_commits(commits, :cantidad)
+          actividad_porcentaje = get_actividad_simultanea_de_commits(commits, :porcentaje)
 
-          actividad_simultanea_entre_tags << actividad
+          actividad_cantidad[:tag] = tag
+          actividad_porcentaje[:tag] = tag
+
+          actividad_cantidad_simultanea_entre_tags << actividad_cantidad
+          actividad_porcentaje_simultanea_entre_tags << actividad_porcentaje
 
           tag_desde = tag
         end
 
-        tabla_actividad = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir actividad_simultanea_entre_tags
+        tabla_actividad_cantidad = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir actividad_cantidad_simultanea_entre_tags
+        tabla_actividad_porcentaje = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir actividad_porcentaje_simultanea_entre_tags
 
         dir_salida = @dir_loader.get_directorio("DATA")
-        archivo_salida = dir_salida + "actividad_simultanea.csv"
-        MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla(tabla_actividad, archivo_salida, "\t")
+        archivo_salida = dir_salida + "actividad_simultanea_cantidad.csv"
+        MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla(tabla_actividad_cantidad, archivo_salida, "\t")
+
+        archivo_salida = dir_salida + "actividad_simultanea_porcentaje.csv"
+        MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla(tabla_actividad_porcentaje, archivo_salida, "\t")
 
       end
 

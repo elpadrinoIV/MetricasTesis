@@ -37,10 +37,18 @@ Agregar commit lleva como parámetros:
 |agregar_commit; | 1 | 1 | 1 |
 |agregar_commit; | 2 | 3 | 4 |
 |agregar_commit; | 3 | 5 | 9 |
+|agregar_commit; | 1 | 1 | 1 |
 |check|  codigo    |3|
 |check|  ut        |2|
 |check|  at        |2|
 |check| ut_codigo  |3|
 |check| at_codigo  |4|
 |check|  at_ut     |2|
-|check|at_ut_codigo|3|
+|check|at_ut_codigo|4|
+|check|  codigo_porcentaje    |0.15|
+|check|  ut_porcentaje        |0.1|
+|check|  at_porcentaje        |0.1|
+|check| ut_codigo_porcentaje  |0.15|
+|check| at_codigo_porcentaje  |0.2|
+|check|  at_ut_porcentaje     |0.1|
+|check|at_ut_codigo_porcentaje|0.2|
