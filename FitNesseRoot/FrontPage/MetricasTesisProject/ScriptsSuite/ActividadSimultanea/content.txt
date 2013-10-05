@@ -1,0 +1,46 @@
+Dada una serie de commits, me interesa obtener la siguiente información:
+
+Cantidad de commits en el que se modifica:
+|Comment|
+|codigo| Código|
+|ut| UT |
+|at| AT |
+|ut_codigo| UT + Código |
+|at_codigo| AT + Código |
+|at_ut | AT + UT |
+|at_ut_codigo | AT + UT + Código |
+
+!3 Pruebas
+
+Agregar commit lleva como parámetros:
+  * AT modificados
+  * UT modificados
+  * Código modificados
+
+|script| Contar Actividad Simultanea |
+|agregar_commit; | 0 | 0 | 3 |
+|agregar_commit; | 0 | 0 | 2 |
+|agregar_commit; | 0 | 0 | 4 |
+|agregar_commit; | 0 | 2 | 0 |
+|agregar_commit; | 0 | 1 | 0 |
+|agregar_commit; | 1 | 0 | 0 |
+|agregar_commit; | 3 | 0 | 0 |
+|agregar_commit; | 0 | 2 | 2 |
+|agregar_commit; | 0 | 2 | 5 |
+|agregar_commit; | 0 | 1 | 3 |
+|agregar_commit; | 1 | 0 | 2 |
+|agregar_commit; | 1 | 0 | 1 |
+|agregar_commit; | 1 | 0 | 4 |
+|agregar_commit; | 3 | 0 | 3 |
+|agregar_commit; | 3 | 1 | 0 |
+|agregar_commit; | 2 | 2 | 0 |
+|agregar_commit; | 1 | 1 | 1 |
+|agregar_commit; | 2 | 3 | 4 |
+|agregar_commit; | 3 | 5 | 9 |
+|check|  codigo    |3|
+|check|  ut        |2|
+|check|  at        |2|
+|check| ut_codigo  |3|
+|check| at_codigo  |4|
+|check|  at_ut     |2|
+|check|at_ut_codigo|3|
