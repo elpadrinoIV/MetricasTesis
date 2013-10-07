@@ -8,7 +8,8 @@ require 'tags_handler'
 module MetricasTesis
   module Scripts
     class ActividadSimultaneaEntreTagsScript
-      attr_accessor :at_symbol, :ut_symbol, :codigo_symbol, :lista_excluded_tags
+      attr_accessor :at_symbol, :ut_symbol, :codigo_symbol, :lista_excluded_tags,
+        :lista_tags
       
       def initialize path_repos
         @path_repos = path_repos
@@ -158,7 +159,6 @@ if "RUN_SCRIPT" == ARGV[0]
   git_dir_fitnesse = File.dirname(__FILE__) + '/../../../fitnesse/.git'
 
   script = MetricasTesis::Scripts::ActividadSimultaneaEntreTagsScript.new git_dir_fitnesse
-
   script.lista_excluded_tags = ["list", "nonewtmpl"]
   script.run
 end
