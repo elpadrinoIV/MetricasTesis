@@ -83,9 +83,42 @@ module MetricasTesis
         datos
       end
 
+      def get_datos_archivos
+        dir_git_repos = @path_repos.gsub(/\.git$/, '')
+        dir_git_repos = Dir.pwd + "/" + dir_git_repos
+        
+        directorio_original = Dir.pwd
+
+        Dir.chdir(dir_git_repos)
+        `git checkout --quiet 20130530`
+        todos_los_archivos = `find . | sed 's/^\\.\\///'`.split("\n")
+        archivos_at = @pattern_acceptance_tests.filtrar(todos_los_archivos)
+        archivos_ut = @pattern_unit_tests.filtrar(todos_los_archivos)
+        archivos_codigo = @pattern_codigo.filtrar(todos_los_archivos)
+
+        archivos_at_java_fixtures = Array.new
+        archivos_at.each do |archivo|
+          archivos_at_java_fixtures << archivo if /\.java$/ =~ archivo
+        end
+
+        archivos_at_fitnesse_txt = Array.new
+        archivos_at.each do |archivo|
+          archivos_at_fitnesse_txt << archivo if /content.txt$/ =~ archivo
+        end
+
+        puts "TODOS: #{todos_los_archivos.size}"
+        puts "AT: #{archivos_at.size} - JAVA: #{archivos_at_java_fixtures.size} - FITNESSE #{archivos_at_fitnesse_txt.size}"
+        puts "UT: #{archivos_ut.size}"
+        puts "COD: #{archivos_codigo.size}"
+
+        `git checkout --quiet master`
+        Dir.chdir(directorio_original)
+      end
+
       def run
         puts "RUNNING"
-
+        get_datos_archivos
+=begin
         datos_proyecto = Array.new
 
         if @lista_tags.empty?
@@ -112,6 +145,7 @@ module MetricasTesis
         dir_salida = @dir_loader.get_directorio("DATA")
         archivo_salida = dir_salida + "datos_proyecto.csv"
         MetricasTesis::Scripts::Utilitarios::ArrayToTable.guardar_tabla(tabla_datos_proyecto, archivo_salida, "\t")
+=end
       end
 
       def procesar_commits datos_commits
