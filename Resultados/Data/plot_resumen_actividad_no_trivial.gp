@@ -1,5 +1,9 @@
 set term png size 1280,640
-set output 'resumen_actividad_no_trivial.png'
+
+proyecto = "fitnesse"
+archivo = proyecto . "/resumen_actividad_no_trivial.csv"
+
+set output proyecto . "/resumen_actividad_no_trivial.png"
 
 # set term epslatex color
 # set output 'resumen_actividad_no_trivial.tex'
@@ -20,7 +24,7 @@ set style fill solid border -2.0
 set xtic rotate by -45 scale 0 font ",8"
 
 
-plot 'resumen_actividad_no_trivial.csv' using 1:xtic(5) every ::1 ti "AT modificados" ls 1, \
-     'resumen_actividad_no_trivial.csv' using 2:xtic(5) every ::1 ti "UT modificados" ls 2, \
-     'resumen_actividad_no_trivial.csv' using 3:xtic(5) every ::1 ti "Código modificados" ls 3
+plot archivo using 1:xtic(5) every ::1 ti "AT modificados" ls 1, \
+     archivo using 2:xtic(5) every ::1 ti "UT modificados" ls 2, \
+     archivo using 3:xtic(5) every ::1 ti "Código modificados" ls 3
  

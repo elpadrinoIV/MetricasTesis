@@ -1,11 +1,15 @@
 set term png size 1280,640
-set output 'actividad_simultanea_cantidad.png'
+
+proyecto = "fitnesse"
+archivo_cantidad = proyecto . "/actividad_simultanea_cantidad.csv"
+# archivo_porcentaje = proyecto . "/actividad_simultanea_porcentaje.csv"
+
+set output proyecto . "/actividad_simultanea_cantidad.png"
 
 # set term epslatex color
 # set output 'actividad_simultanea.tex'
 
 set title "Actividad entre tags"
-
 
 # leyenda arriba a la izquierda
 set key left top
@@ -21,24 +25,11 @@ set xtic rotate by -45 scale 0 font ",8"
 
 set xlabel "Tags"
 set ylabel "Cantidad commits"
-plot 'actividad_simultanea_cantidad.csv' using 2:xtic(9) every ::1 ti "Código" ls 1, \
-     'actividad_simultanea_cantidad.csv' using 5:xtic(9) every ::1 ti "UT + Código" ls 2, \
-     'actividad_simultanea_cantidad.csv' using 8:xtic(9) every ::1 ti "AT + UT + Código" ls 3
+plot archivo_cantidad using 2:xtic(9) every ::1 ti "Código" ls 1, \
+     archivo_cantidad using 5:xtic(9) every ::1 ti "UT + Código" ls 2, \
+     archivo_cantidad using 8:xtic(9) every ::1 ti "AT + UT + Código" ls 3
  
-
-set ylabel "Porcentaje"
-set ytics 10
-set output 'actividad_simultanea_porcentaje.png'
-plot [:][0:100]'actividad_simultanea_porcentaje.csv' using ($2*100):xtic(9) every ::1 ti "Código" ls 1, \
-     'actividad_simultanea_porcentaje.csv' using ($5*100):xtic(9) every ::1 ti "UT + Código" ls 2, \
-     'actividad_simultanea_porcentaje.csv' using ($8*100):xtic(9) every ::1 ti "AT + UT + Código" ls 3
-
-set output 'actividad_simultanea_porcentaje_suma_1.png'
-plot [:][0:100] 'actividad_simultanea_cantidad.csv' using ($2/($2+$5+$8)*100):xtic(9) every ::1 ti "Código" ls 1, \
-     'actividad_simultanea_cantidad.csv' using ($5/($2+$5+$8)*100):xtic(9) every ::1 ti "UT + Código" ls 2, \
-     'actividad_simultanea_cantidad.csv' using ($8/($2+$5+$8)*100):xtic(9) every ::1 ti "AT + UT + Código" ls 3
-
-set output 'actividad_simultanea_porcentaje_sobre_at_ut_codigo.png'
-plot [:][0:100] 'actividad_simultanea_cantidad.csv' using ($2/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "Código" ls 1, \
-     'actividad_simultanea_cantidad.csv' using ($5/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "UT + Código" ls 2, \
-     'actividad_simultanea_cantidad.csv' using ($8/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "AT + UT + Código" ls 3
+set output proyecto . "/actividad_simultanea_porcentaje_sobre_at_ut_codigo.png"
+plot [:][0:100] archivo_cantidad using ($2/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "Código" ls 1, \
+     archivo_cantidad using ($5/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "UT + Código" ls 2, \
+     archivo_cantidad using ($8/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "AT + UT + Código" ls 3
