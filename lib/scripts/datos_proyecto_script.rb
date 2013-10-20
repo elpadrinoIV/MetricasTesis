@@ -16,7 +16,8 @@ module MetricasTesis
   module Scripts
     class DatosProyectoScript
       attr_accessor :lista_tags, :lista_excluded_tags, :lista_excluded_commits,
-        :pattern_acceptance_tests, :pattern_unit_tests, :pattern_codigo
+        :pattern_acceptance_tests, :pattern_unit_tests, :pattern_codigo,
+        :tag_referencia
         
       def initialize path_repos
         @path_repos = path_repos
@@ -32,57 +33,6 @@ module MetricasTesis
         @lista_tags = Array.new
       end
 
-      def get_datos_proyecto(tag_desde, tag_hasta)
-        commits = @commits_handler.commits_entre_tags(tag_desde, tag_hasta)
-
-        datos_commits = Array.new
-        commits = commits - @lista_excluded_commits
-        commits.each do |commit|
-          fecha_iso = @commits_handler.fecha_commit(commit, :iso)
-          fecha_timestamp = @commits_handler.fecha_commit(commit, :timestamp)
-          fila = Hash.new
-          fila[:commit_hash] = commit
-          fila[:fecha_iso] = "\"#{fecha_iso}\""
-          fila[:fecha_timestamp] = fecha_timestamp
-
-          archivos_modificados = @archivos_commits_handler.get_archivos_de_lista([commit], ['M']).values.flatten
-
-          archivos_modificados_at = @pattern_acceptance_tests.filtrar(archivos_modificados)
-          archivos_modificados_ut = @pattern_unit_tests.filtrar(archivos_modificados)
-          archivos_modificados_codigo = @pattern_codigo.filtrar(archivos_modificados)
-
-          archivos_modificados_ut = archivos_modificados_ut - ['src/fitnesse/components/ClassPathBuilderTest.java', # /* dentro de string ("... /* ...")
-            'src/fitnesse/components/ContentBufferTest.java',
-            'src/fitnesse/http/RequestTest.java',
-            'src/fitnesse/wikitext/widgets/ClasspathWidgetTest.java'
-          ]
-
-          cantidad_archivos_modificados_at = 0
-          archivos_modificados_at.each do |archivo|
-            cantidad_archivos_modificados_at += 1 if @analizador_modificaciones.hay_cambio_no_trivial?(archivo, commit)
-          end
-
-          cantidad_archivos_modificados_ut = 0
-          archivos_modificados_ut.each do |archivo|
-            cantidad_archivos_modificados_ut += 1 if @analizador_modificaciones.hay_cambio_no_trivial?(archivo, commit)
-          end
-
-          cantidad_archivos_modificados_codigo = 0
-          archivos_modificados_codigo.each do |archivo|
-            cantidad_archivos_modificados_codigo += 1 if @analizador_modificaciones.hay_cambio_no_trivial?(archivo, commit)
-          end
-
-          fila[:archivos_modificados_at] = cantidad_archivos_modificados_at
-          fila[:archivos_modificados_ut] = cantidad_archivos_modificados_ut
-          fila[:archivos_modificados_codigo] = cantidad_archivos_modificados_codigo
-
-          datos_commits << fila
-        end
-
-        datos = procesar_commits(datos_commits)
-        datos
-      end
-
       def get_datos_archivos
         dir_git_repos = @path_repos.gsub(/\.git$/, '')
         dir_git_repos = Dir.pwd + "/" + dir_git_repos
@@ -90,7 +40,7 @@ module MetricasTesis
         directorio_original = Dir.pwd
 
         Dir.chdir(dir_git_repos)
-        `git checkout --quiet 20130530`
+        `git checkout --quiet #{@tag_referencia}`
         todos_los_archivos = `find . | sed 's/^\\.\\///'`.split("\n")
         archivos_at = @pattern_acceptance_tests.filtrar(todos_los_archivos)
         archivos_ut = @pattern_unit_tests.filtrar(todos_los_archivos)
@@ -210,5 +160,6 @@ if "RUN_SCRIPT" == ARGV[0]
   
   script.lista_excluded_tags = ["list", "nonewtmpl"]
   script.lista_excluded_commits = []
+  script.tag_referencia = '20130530'
   script.run
 end

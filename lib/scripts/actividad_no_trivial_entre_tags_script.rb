@@ -14,7 +14,7 @@ module MetricasTesis
   module Scripts
     class ActividadNoTrivialEntreTagsScript
       attr_accessor :pattern_acceptance_tests, :pattern_unit_tests, :pattern_codigo,
-        :lista_tags, :lista_excluded_tags, :lista_excluded_commits
+        :lista_tags, :lista_excluded_tags, :lista_excluded_commits, :lista_excluded_files
 
       def initialize path_repos
         @path_repos = path_repos
@@ -49,11 +49,9 @@ module MetricasTesis
           archivos_modificados_ut = @pattern_unit_tests.filtrar(archivos_modificados)
           archivos_modificados_codigo = @pattern_codigo.filtrar(archivos_modificados)
 
-          archivos_modificados_ut = archivos_modificados_ut - ['src/fitnesse/components/ClassPathBuilderTest.java', # /* dentro de string ("... /* ...")
-            'src/fitnesse/components/ContentBufferTest.java',
-            'src/fitnesse/http/RequestTest.java',
-            'src/fitnesse/wikitext/widgets/ClasspathWidgetTest.java'            
-          ]
+          archivos_modificados_at = archivos_modificados_at - @lista_excluded_files
+          archivos_modificados_ut = archivos_modificados_ut - @lista_excluded_files
+          archivos_modificados_codigo = archivos_modificados_codigo - @lista_excluded_files
 
           cantidad_archivos_modificados_at = 0
           archivos_modificados_at.each do |archivo|
@@ -244,6 +242,10 @@ if "RUN_SCRIPT" == ARGV[0]
 
   script.lista_excluded_tags = ["list", "nonewtmpl"]
   script.lista_excluded_commits = []
+  script.lista_excluded_files = ['src/fitnesse/components/ClassPathBuilderTest.java', # /* dentro de string ("... /* ...")
+            'src/fitnesse/components/ContentBufferTest.java',
+            'src/fitnesse/http/RequestTest.java',
+            'src/fitnesse/wikitext/widgets/ClasspathWidgetTest.java']
   # script.lista_excluded_commits = ['c1e4c47555cea326a6d3c93185c90a3df2d13b84',
   #  'ba03fe1917ae022427607c4270e643ccd78ec118',
   #  '3bec390e6f8e9e341149b7d060551a92b93d3154',
