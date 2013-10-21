@@ -1,11 +1,13 @@
 require 'dir_loader'
 require 'array_to_table'
-require 'fitnesse_file_patterns'
+
 
 require 'ant_pattern_filter'
 require 'commits_handler'
 require 'archivos_commits_handler'
 require 'tags_handler'
+
+require 'datos_fitnesse'
 
 module MetricasTesis
   module Scripts
@@ -200,10 +202,10 @@ module MetricasTesis
 end
 
 if "RUN_SCRIPT" == ARGV[0]
-  
-  git_dir_fitnesse = File.dirname(__FILE__) + '/../../../fitnesse/.git'
 
-  script = MetricasTesis::Scripts::ActividadEntreTagsScript.new git_dir_fitnesse
+  datos_proyecto = MetricasTesis::Scripts::Utilitarios::DatosFitnesse.new
+  
+  script = MetricasTesis::Scripts::ActividadEntreTagsScript.new datos_proyecto.git_dir
 
   script.pattern_acceptance_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_aceptacion
   script.pattern_unit_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_unitarias
