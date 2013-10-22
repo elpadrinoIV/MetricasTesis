@@ -1,13 +1,13 @@
 require 'dir_loader'
 require 'array_to_table'
 
-
 require 'ant_pattern_filter'
 require 'commits_handler'
 require 'archivos_commits_handler'
 require 'tags_handler'
 
 require 'datos_fitnesse'
+require 'datos_jumi'
 
 module MetricasTesis
   module Scripts
@@ -203,7 +203,7 @@ end
 
 if "RUN_SCRIPT" == ARGV[0]
 
-  datos_proyecto = MetricasTesis::Scripts::Utilitarios::DatosFitnesse.new
+  datos_proyecto = MetricasTesis::Scripts::Utilitarios::DatosJumi.new
   
   script = MetricasTesis::Scripts::ActividadEntreTagsScript.new datos_proyecto.git_dir
 

@@ -3,6 +3,8 @@ require 'array_to_table'
 require 'table_to_array'
 
 require 'datos_fitnesse'
+require 'datos_jumi'
+
 require 'tags_handler'
 
 
@@ -157,7 +159,7 @@ module MetricasTesis
 end
 
 if "RUN_SCRIPT" == ARGV[0]
-  datos_proyecto = MetricasTesis::Scripts::Utilitarios::DatosFitnesse.new
+  datos_proyecto = MetricasTesis::Scripts::Utilitarios::DatosJumi.new
   
   script = MetricasTesis::Scripts::ActividadSimultaneaEntreTagsScript.new datos_proyecto.git_dir
   script.lista_excluded_tags = datos_proyecto.lista_excluded_tags

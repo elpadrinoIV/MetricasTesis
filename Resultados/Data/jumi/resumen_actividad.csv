@@ -1,0 +1,13 @@
+acceptance_tests_agregados	acceptance_tests_modificados	acceptance_tests_eliminados	unit_tests_agregados	unit_tests_modificados	unit_tests_eliminados	codigo_agregados	codigo_modificados	codigo_eliminados	otro_agregados	otro_modificados	otro_eliminados	tag
+0	6	0	3	6	0	8	16	2	5	64	2	"v0.1.64"
+18	134	9	24	130	9	80	269	32	46	371	22	"v0.1.196"
+1	8	0	3	8	1	2	18	1	1	84	159	"v0.2.235"
+0	1	0	0	1	0	0	3	0	0	10	0	"v0.2.241"
+2	21	0	19	37	14	34	112	25	1	64	0	"v0.3.257"
+19	51	2	14	67	5	24	135	7	6	156	1	"v0.4.313"
+0	3	0	0	3	0	0	6	0	0	10	0	"v0.4.317"
+1	12	0	4	37	4	5	40	7	1	52	0	"v0.4.345"
+0	0	0	0	0	0	3	0	3	0	6	0	"v0.4.350"
+0	2	0	9	24	4	12	45	9	1	45	1	"v0.5.365"
+0	2	0	0	1	0	1	4	0	0	13	0	"v0.5.376"
+0	3	0	0	0	0	0	18	0	0	32	0	"v0.5.390"

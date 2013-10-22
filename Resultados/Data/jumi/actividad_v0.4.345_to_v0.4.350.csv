@@ -1,0 +1,6 @@
+commit_hash	fecha_iso	fecha_timestamp	acceptance_tests_agregados	acceptance_tests_modificados	acceptance_tests_eliminados	unit_tests_agregados	unit_tests_modificados	unit_tests_eliminados	codigo_agregados	codigo_modificados	codigo_eliminados	otro_agregados	otro_modificados	otro_eliminados
+0608e868c047695628bd99091962ba9415cfbd08	"2013-07-09 14:09:01 +0300"	1373368141	0	0	0	0	0	0	0	0	0	0	1	0
+b4f893199f40d92b45f8327aa04e1a73d81b3906	"2013-07-09 18:18:02 +0300"	1373383082	0	0	0	0	0	0	0	0	0	0	1	0
+a755dc00353b36f1a5de2f82a1f24d09e5273a14	"2013-07-10 17:03:35 +0300"	1373465015	0	0	0	0	0	0	0	0	0	0	1	0
+28cc86270be176fcd972034424d3a19298b771bc	"2013-07-10 21:01:05 +0300"	1373479265	0	0	0	0	0	0	3	0	3	0	2	0
+e29d3e869c1841b7f146d51205f58aa67cbf6c35	"2013-07-10 21:05:34 +0300"	1373479534	0	0	0	0	0	0	0	0	0	0	1	0
