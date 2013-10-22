@@ -2,6 +2,7 @@ require 'dir_loader'
 require 'array_to_table'
 require 'table_to_array'
 
+require 'datos_fitnesse'
 require 'tags_handler'
 
 
@@ -156,9 +157,9 @@ module MetricasTesis
 end
 
 if "RUN_SCRIPT" == ARGV[0]
-  git_dir_fitnesse = File.dirname(__FILE__) + '/../../../fitnesse/.git'
-
-  script = MetricasTesis::Scripts::ActividadSimultaneaEntreTagsScript.new git_dir_fitnesse
-  script.lista_excluded_tags = ["list", "nonewtmpl"]
+  datos_proyecto = MetricasTesis::Scripts::Utilitarios::DatosFitnesse.new
+  
+  script = MetricasTesis::Scripts::ActividadSimultaneaEntreTagsScript.new datos_proyecto.git_dir
+  script.lista_excluded_tags = datos_proyecto.lista_excluded_tags
   script.run
 end

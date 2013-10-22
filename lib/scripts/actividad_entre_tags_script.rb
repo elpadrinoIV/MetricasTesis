@@ -207,10 +207,10 @@ if "RUN_SCRIPT" == ARGV[0]
   
   script = MetricasTesis::Scripts::ActividadEntreTagsScript.new datos_proyecto.git_dir
 
-  script.pattern_acceptance_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_aceptacion
-  script.pattern_unit_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_unitarias
-  script.pattern_codigo = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_codigo
+  script.pattern_acceptance_tests = datos_proyecto.pattern_acceptance_tests
+  script.pattern_unit_tests = datos_proyecto.pattern_unit_tests
+  script.pattern_codigo = datos_proyecto.pattern_codigo
 
-  script.lista_excluded_tags = ["list", "nonewtmpl"]
+  script.lista_excluded_tags = datos_proyecto.lista_excluded_tags
   script.run
 end

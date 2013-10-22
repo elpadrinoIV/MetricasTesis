@@ -6,7 +6,7 @@ require 'commits_handler'
 require 'analizador_modificaciones'
 require 'tags_handler'
 
-require 'fitnesse_file_patterns'
+require 'datos_fitnesse'
 require 'ant_pattern_filter'
 require 'archivos_commits_handler'
 
@@ -35,7 +35,7 @@ module MetricasTesis
 
       def get_datos_archivos
         dir_git_repos = @path_repos.gsub(/\.git$/, '')
-        dir_git_repos = Dir.pwd + "/" + dir_git_repos
+        # dir_git_repos = Dir.pwd + "/" + dir_git_repos
         
         directorio_original = Dir.pwd
 
@@ -151,15 +151,15 @@ module MetricasTesis
 end
 
 if "RUN_SCRIPT" == ARGV[0]
-  git_dir_fitnesse = File.dirname(__FILE__) + '/../../../fitnesse/.git'
+  datos_proyecto = MetricasTesis::Scripts::Utilitarios::DatosFitnesse.new
 
-  script = MetricasTesis::Scripts::DatosProyectoScript.new git_dir_fitnesse
-  script.pattern_acceptance_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_aceptacion
-  script.pattern_unit_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_unitarias
-  script.pattern_codigo = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_codigo
+  script = MetricasTesis::Scripts::DatosProyectoScript.new datos_proyecto.git_dir
+  script.pattern_acceptance_tests = datos_proyecto.pattern_acceptance_tests
+  script.pattern_unit_tests = datos_proyecto.pattern_unit_tests
+  script.pattern_codigo = datos_proyecto.pattern_codigo
   
-  script.lista_excluded_tags = ["list", "nonewtmpl"]
-  script.lista_excluded_commits = []
-  script.tag_referencia = '20130530'
+  script.lista_excluded_tags = datos_proyecto.lista_excluded_tags
+  script.lista_excluded_commits = datos_proyecto.lista_excluded_commits
+  script.tag_referencia = datos_proyecto.tag_referencia
   script.run
 end

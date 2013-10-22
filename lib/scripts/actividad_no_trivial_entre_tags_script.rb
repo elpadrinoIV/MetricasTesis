@@ -1,6 +1,7 @@
 require 'dir_loader'
 require 'array_to_table'
-require 'fitnesse_file_patterns'
+
+require 'datos_fitnesse'
 
 require 'ant_pattern_filter'
 
@@ -231,21 +232,18 @@ module MetricasTesis
 end
 
 if "RUN_SCRIPT" == ARGV[0]
+
+  datos_proyecto = MetricasTesis::Scripts::Utilitarios::DatosFitnesse.new
   
-  git_dir_fitnesse = File.dirname(__FILE__) + '/../../../fitnesse/.git'
+  script = MetricasTesis::Scripts::ActividadNoTrivialEntreTagsScript.new datos_proyecto.git_dir
 
-  script = MetricasTesis::Scripts::ActividadNoTrivialEntreTagsScript.new git_dir_fitnesse
+  script.pattern_acceptance_tests = datos_proyecto.pattern_acceptance_tests
+  script.pattern_unit_tests = datos_proyecto.pattern_unit_tests
+  script.pattern_codigo = datos_proyecto.pattern_codigo
 
-  script.pattern_acceptance_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_aceptacion
-  script.pattern_unit_tests = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_pruebas_unitarias
-  script.pattern_codigo = MetricasTesis::Scripts::Utilitarios::FitnesseFilePatterns.get_patron_codigo
-
-  script.lista_excluded_tags = ["list", "nonewtmpl"]
-  script.lista_excluded_commits = []
-  script.lista_excluded_files = ['src/fitnesse/components/ClassPathBuilderTest.java', # /* dentro de string ("... /* ...")
-            'src/fitnesse/components/ContentBufferTest.java',
-            'src/fitnesse/http/RequestTest.java',
-            'src/fitnesse/wikitext/widgets/ClasspathWidgetTest.java']
+  script.lista_excluded_tags = datos_proyecto.lista_excluded_tags
+  script.lista_excluded_commits = datos_proyecto.lista_excluded_commits
+  script.lista_excluded_files = datos_proyecto.lista_excluded_files
   # script.lista_excluded_commits = ['c1e4c47555cea326a6d3c93185c90a3df2d13b84',
   #  'ba03fe1917ae022427607c4270e643ccd78ec118',
   #  '3bec390e6f8e9e341149b7d060551a92b93d3154',

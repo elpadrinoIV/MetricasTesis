@@ -1,4 +1,4 @@
-
+require 'ant_pattern_filter'
 module MetricasTesis
   module Scripts
     module Utilitarios
