@@ -1,6 +1,6 @@
 set term png size 1280,640
 
-proyecto = "fitnesse"
+proyecto = "jumi"
 archivo_cantidad = proyecto . "/actividad_simultanea_proyecto_cantidad.csv"
 
 # set output proyecto . "/actividad_simultanea_proyecto.png"
