@@ -12,13 +12,12 @@ module MetricasTesis
           tabla_para_csv = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir(tabla)
 
           # Encabezado
-          tabla_latex << '\setlength{\tabcolsep}{10pt}'
-          tabla_latex << '\rowcolors{2}{grey}{white}'
+          tabla_latex << '\renewcommand{\arraystretch}{1.2}'
           tabla_latex << '\begin{table}[!htpb]'
           tabla_latex << '\centering'
 
           cantidad_columnas = tabla.first.keys.size
-          tabla_latex << '\begin{tabular}{' + 'c'*cantidad_columnas + '}'
+          tabla_latex << '\begin{tabular}{@{}' + 'c'*cantidad_columnas + '@{}}'
           tabla_latex << '\toprule'
 
           # Contenido tabla

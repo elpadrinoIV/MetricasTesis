@@ -20,11 +20,10 @@ class TableToLatexTest < Test::Unit::TestCase
 
   def get_resultado_esperado
     resultado = Array.new
-    resultado << '\setlength{\tabcolsep}{10pt}'
-    resultado << '\rowcolors{2}{grey}{white}'
+    resultado << '\renewcommand{\arraystretch}{1.2}'
     resultado << '\begin{table}[!htpb]'
     resultado << '\centering'
-    resultado << '\begin{tabular}{ccc}'
+    resultado << '\begin{tabular}{@{}ccc@{}}'
     resultado << '\toprule'
     resultado << '\multicolumn{1}{c}{\textbf{col1}} & \multicolumn{1}{c}{\textbf{col2}} & \multicolumn{1}{c}{\textbf{col3}}\\\\'
     resultado << '\midrule'
