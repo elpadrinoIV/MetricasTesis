@@ -1,14 +1,14 @@
-set term png size 1280,640
+# set term png size 1280,640
 
-proyecto = "jumi"
+proyecto = "fitnesse"
 archivo = proyecto . "/resumen_actividad_no_trivial.csv"
 
-set output proyecto . "/resumen_actividad_no_trivial.png"
+# set output proyecto . "/resumen_actividad_no_trivial.png"
 
-# set term epslatex color
-# set output 'resumen_actividad_no_trivial.tex'
+set term epslatex color header "\\newcommand{\\ft}[0]{\\footnotesize}"
+set output 'resumen_actividad_no_trivial.tex'
 
-set title "Archivos modificados entre tags"
+# set title "Archivos modificados entre tags"
 
 
 # leyenda arriba a la izquierda
@@ -23,8 +23,10 @@ set style histogram cluster gap 2
 set style fill solid border -2.0
 set xtic rotate by -45 scale 0 font ",8"
 
+set xlabel "Releases"
+set ylabel "Archivos modificados"
 
-plot archivo using 1:xtic(5) every ::1 ti "AT modificados" ls 1, \
-     archivo using 2:xtic(5) every ::1 ti "UT modificados" ls 2, \
-     archivo using 3:xtic(5) every ::1 ti "CÃ³digo modificados" ls 3
+plot archivo using 1:xtic(5) every ::1 ti "\\ft AT modificados" ls 1, \
+     archivo using 2:xtic(5) every ::1 ti "\\ft UT modificados" ls 2, \
+     archivo using 3:xtic("\\ft " . stringcolumn(5)) every ::1 ti "\\ft Código modificados" ls 3
  
