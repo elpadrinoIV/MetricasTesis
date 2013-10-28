@@ -1,6 +1,6 @@
 # set term png size 1280,640
 
-proyecto = "fitnesse"
+proyecto = "jumi"
 archivo_cantidad = proyecto . "/actividad_simultanea_cantidad.csv"
 # archivo_porcentaje = proyecto . "/actividad_simultanea_porcentaje.csv"
 
@@ -31,6 +31,6 @@ plot archivo_cantidad using 2:xtic(9) every ::1 ti "\\ft Código" ls 1, \
  
 # set output proyecto . "/actividad_simultanea_porcentaje_sobre_at_ut_codigo.png"
 set output "actividad_simultanea_porcentaje.tex"
-plot [:][0:100] archivo_cantidad using ($2/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "\\ft Código" ls 1, \
+plot [:][0:100] archivo_cantidad using ($8/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "\\ft AT + UT + Código" ls 1, \
      archivo_cantidad using ($5/($2+$3+$4+$5+$6+$7+$8)*100):xtic(9) every ::1 ti "\\ft UT + Código" ls 2, \
-     archivo_cantidad using ($8/($2+$3+$4+$5+$6+$7+$8)*100):xtic("\\ft " . stringcolumn(9)) every ::1 ti "\\ft AT + UT + Código" ls 3
+     archivo_cantidad using ($2/($2+$3+$4+$5+$6+$7+$8)*100):xtic("\\ft " . stringcolumn(9)) every ::1 ti "\\ft Código" ls 3
