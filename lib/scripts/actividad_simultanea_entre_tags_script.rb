@@ -1,6 +1,7 @@
 require 'dir_loader'
 require 'array_to_table'
 require 'table_to_array'
+require 'analizador_tabla'
 
 require 'datos_fitnesse'
 require 'datos_jumi'
@@ -141,6 +142,10 @@ module MetricasTesis
 
           tag_desde = tag
         end
+
+        fila_total = MetricasTesis::Scripts::Utilitarios::AnalizadorTabla.calcular_total(actividad_cantidad_simultanea_entre_tags)
+        fila_total[:tag] = "Total"
+        actividad_cantidad_simultanea_entre_tags << fila_total
 
         tabla_actividad_cantidad = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir actividad_cantidad_simultanea_entre_tags
         tabla_actividad_porcentaje = MetricasTesis::Scripts::Utilitarios::ArrayToTable.convertir actividad_porcentaje_simultanea_entre_tags
