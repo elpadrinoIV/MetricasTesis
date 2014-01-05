@@ -1,15 +1,13 @@
-set term png size 1280,640
+# set term png size 1280,640
 
-proyecto = "jumi"
+proyecto = "fitnesse"
 nombre_archivo = proyecto . "/actividad_por_commit.csv"
 archivo = "<(head -n -1 " . nombre_archivo . ")"
-# archivo = nombre_archivo
 
+set term epslatex color header "\\newcommand{\\ft}[0]{\\footnotesize}"
+set output 'actividad_por_commit_porcentaje.tex'
 
-# set term epslatex color header "\\newcommand{\\ft}[0]{\\footnotesize}"
-# set output 'actividad_por_commit_porcentaje.tex'
-
-set output proyecto . "/actividad_por_commit_porcentaje.png"
+# set output proyecto . "/actividad_por_commit_porcentaje.png"
 
 # set title "Actividad entre tags"
 
